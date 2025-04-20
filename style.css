@@ -81,6 +81,35 @@ header h1 {
 .skill-groups > :nth-child(5) {
     grid-column: 2 / 3;
 }
+/* New Section Styles for Contact Information */
+.contact {
+    margin-top: 50px;
+    padding-left: 140px;
+}
+
+.contact .section-title {
+    font-size: 32px;
+    margin-bottom: 20px;
+}
+
+.contact ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+.contact li {
+    font-size: 18px;
+    margin: 10px 0;
+}
+
+.contact a {
+    color: #007BFF;
+    text-decoration: none;
+}
+
+.contact a:hover {
+    text-decoration: underline;
+}
 
 /* Project List Styles */
 .project-list {
