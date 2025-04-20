@@ -9,11 +9,11 @@ body {
 
 /* Header Styles */
 header {
-    background-color: #222; /* Gentle black color */
+    background-color: #222;
     color: white;
     padding: 20px;
-    text-align: left; /* Align content to the left */
-    width: 100%; /* Ensures it spans the full width of the page */
+    text-align: left;
+    width: 100%;
 }
 
 header h1 {
@@ -23,10 +23,13 @@ header h1 {
     margin-left: 275px;
 }
 
+/* Container to align content */
 .container {
     width: 80%;
     margin: 0 auto;
 }
+
+/* Simple summary paragraph */
 .simple-summary p {
     font-size: 20px;
     font-weight: 400;
@@ -37,18 +40,21 @@ header h1 {
     padding: 0 20px;
     text-align: justify;
 }
+
+/* Section Title Styles */
 .section-title {
     font-size: 32px;
     margin-top: 50px;
     text-align: left;
-    margin-left: 150px; /* This moves the heading slightly to the right */
+    margin-left: 150px;
 }
 
+/* Skill Group Grid */
 .skill-groups {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     gap: 40px;
-    padding-left: 150px; /* Increased to push everything slightly to the right */
+    padding-left: 150px;
     margin-top: 30px;
 }
 
@@ -68,7 +74,7 @@ header h1 {
     margin: 0;
 }
 
-/* Force 2 items in the second row, and ensure alignment is preserved */
+/* Adjust grid for second row items */
 .skill-groups > :nth-child(4) {
     grid-column: 1 / 2;
 }
@@ -76,13 +82,12 @@ header h1 {
     grid-column: 2 / 3;
 }
 
-
-
+/* Project List Styles */
 .project-list {
     display: flex;
     flex-direction: column;
     gap: 30px;
-    padding: 0 80px; /* Slightly to the right for consistency */
+    padding: 0 80px;
     margin-top: 30px;
     margin-left: 67px;
 }
@@ -119,16 +124,16 @@ header h1 {
 
 .education .section-title {
     font-size: 32px;
-    text-align: left; /* Slightly left align the heading */
+    text-align: left;
     margin-bottom: 20px;
-    margin-left: 140px; /* Push heading slightly to the left */
+    margin-left: 140px;
 }
 
 .education-details {
     font-size: 18px;
     line-height: 1.6;
     color: #333;
-    padding-left: 140px; /* Push content slightly to the right */
+    padding-left: 140px;
 }
 
 .education-details p {
@@ -144,95 +149,178 @@ header h1 {
     text-decoration: underline;
 }
 
-@media screen and (max-width: 768px) {
-    .education-details {
-        padding-left: 20px; /* Adjust padding on smaller screens */
-    }
-
-    .education .section-title {
-        margin-left: 15px; /* Reduce margin for smaller screens */
-    }
-}
-
 /* Blog Section Styles */
 .blog {
-    padding: 50px 15px;         /* Padding around the content */
-    margin-top: 50px;           /* Space above the section */
-    text-align: left;           /* Align text to the left */
-    margin-left: 15%;           /* Push content to the right slightly */
+    padding: 50px 15px;
+    margin-top: 50px;
+    text-align: left;
+    margin-left: 15%;
 }
 
-/* Blog Title */
 .blog .section-title {
     font-size: 32px;
     font-weight: 600;
-    margin-bottom: 20px;        /* Add space below the title */
-    color: #333;  
-    margin-left: -60px;              /* Dark color for the title */
-}
-
-/* Blog Description */
-.blog p {
-    font-size: 18px;
-    color: #555;                /* Slightly lighter color for description text */
-    margin-bottom: 20px;        /* Add space below the description */
-    max-width: 800px;           /* Max width to prevent the text from stretching too wide */
-    margin-left: 0;             /* Center align the paragraph */
-    line-height: 1.6;           /* Increased line height for better readability */
+    margin-bottom: 20px;
+    color: #333;
     margin-left: -60px;
 }
 
-/* Blog Link */
+.blog p {
+    font-size: 18px;
+    color: #555;
+    margin-bottom: 20px;
+    max-width: 800px;
+    margin-left: 0;
+    line-height: 1.6;
+    margin-left: -60px;
+}
+
 .blog a {
     font-size: 18px;
-    color: #007BFF;             /* Blue color for the link */
-    text-decoration: none;      /* Remove underline from link */
-    font-weight: bold;          /* Make the link bold */
-    transition: color 0.3s ease; /* Smooth transition on hover */
+    color: #007BFF;
+    text-decoration: none;
+    font-weight: bold;
+    transition: color 0.3s ease;
 }
 
-/* Blog Link Hover Effect */
 .blog a:hover {
-    color: #0056b3;             /* Darker blue when hovered */
+    color: #0056b3;
 }
 
-/* Responsive Design for Smaller Screens */
-@media screen and (max-width: 768px) {
-    .blog {
-        padding: 30px 15px;     /* Reduce padding on smaller screens */
-        margin-left: 10%;       /* Push content further to the right */
-    }
-
-    .blog p {
-        font-size: 16px;         /* Slightly smaller font size on mobile */
-    }
-
-    .blog a {
-        font-size: 16px;         /* Adjust font size of the link on mobile */
-    }
-}
-
-
+/* Footer Styles */
 footer {
     text-align: center;
     background-color: #333;
     color: white;
     padding: 20px;
 }
+
+/* Quote Section Styles */
 .quote-section {
     text-align: center;
     background-color: #f1f1f1;
     padding: 50px;
 }
+
 .quote-section h2 {
     font-size: 36px;
     margin: 0;
 }
+
 .quote-section a {
     font-size: 18px;
     text-decoration: none;
     color: #007BFF;
 }
+
 .quote-section a:hover {
     color: #0056b3;
+}
+
+/* Responsive Design for Smaller Screens */
+@media screen and (max-width: 1200px) {
+    header h1 {
+        font-size: 30px;
+        margin-left: 20px;
+    }
+
+    .section-title {
+        font-size: 28px;
+        margin-left: 20px;
+    }
+
+    .skill-groups {
+        grid-template-columns: repeat(2, 1fr);
+        padding-left: 50px;
+    }
+
+    .project-list {
+        padding: 0 20px;
+    }
+
+    .education .section-title {
+        margin-left: 20px;
+    }
+
+    .education-details {
+        padding-left: 20px;
+    }
+
+    .blog {
+        margin-left: 10%;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    /* For Tablets and Mobile */
+    header h1 {
+        font-size: 24px;
+        margin-left: 0;
+        text-align: center;
+    }
+
+    .section-title {
+        font-size: 24px;
+        margin-left: 0;
+    }
+
+    .skill-groups {
+        grid-template-columns: 1fr;
+        padding-left: 20px;
+    }
+
+    .project-list {
+        padding: 0 10px;
+    }
+
+    .education .section-title,
+    .blog .section-title {
+        font-size: 28px;
+        margin-left: 0;
+    }
+
+    .education-details,
+    .blog p {
+        font-size: 16px;
+        padding-left: 20px;
+    }
+
+    .quote-section h2 {
+        font-size: 30px;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    /* For Mobile Devices */
+    header h1 {
+        font-size: 22px;
+        text-align: center;
+    }
+
+    .section-title {
+        font-size: 20px;
+    }
+
+    .skill-groups {
+        grid-template-columns: 1fr;
+        padding-left: 10px;
+    }
+
+    .project-list {
+        padding: 0 5px;
+    }
+
+    .education-details,
+    .blog p {
+        font-size: 14px;
+        padding-left: 10px;
+    }
+
+    .quote-section h2 {
+        font-size: 24px;
+    }
+
+    footer {
+        padding: 10px;
+    }
 }
