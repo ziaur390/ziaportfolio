@@ -1,0 +1,238 @@
+/* General Reset */
+body {
+    font-family: 'Roboto', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f7f7f7;
+    color: #333;
+}
+
+/* Header Styles */
+header {
+    background-color: #222; /* Gentle black color */
+    color: white;
+    padding: 20px;
+    text-align: left; /* Align content to the left */
+    width: 100%; /* Ensures it spans the full width of the page */
+}
+
+header h1 {
+    margin: 0;
+    font-size: 36px;
+    font-weight: 500;
+    margin-left: 275px;
+}
+
+.container {
+    width: 80%;
+    margin: 0 auto;
+}
+.simple-summary p {
+    font-size: 20px;
+    font-weight: 400;
+    color: #333;
+    line-height: 1.6;
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 0 20px;
+    text-align: justify;
+}
+.section-title {
+    font-size: 32px;
+    margin-top: 50px;
+    text-align: left;
+    margin-left: 150px; /* This moves the heading slightly to the right */
+}
+
+.skill-groups {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 40px;
+    padding-left: 150px; /* Increased to push everything slightly to the right */
+    margin-top: 30px;
+}
+
+.skill-category {
+    text-align: left;
+}
+
+.skill-category h3 {
+    margin-bottom: 8px;
+    font-size: 20px;
+    color: #007BFF;
+}
+
+.skill-category p {
+    font-size: 16px;
+    color: #333;
+    margin: 0;
+}
+
+/* Force 2 items in the second row, and ensure alignment is preserved */
+.skill-groups > :nth-child(4) {
+    grid-column: 1 / 2;
+}
+.skill-groups > :nth-child(5) {
+    grid-column: 2 / 3;
+}
+
+
+
+.project-list {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+    padding: 0 80px; /* Slightly to the right for consistency */
+    margin-top: 30px;
+    margin-left: 67px;
+}
+
+.project {
+    background-color: #ffffff;
+    padding: 20px;
+    border-left: 4px solid #007BFF;
+    box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.05);
+}
+
+.project h3 {
+    margin: 0 0 10px 0;
+    font-size: 22px;
+    color: #007BFF;
+}
+
+.project a {
+    text-decoration: none;
+    color: #007BFF;
+}
+
+.project p {
+    margin: 0;
+    font-size: 16px;
+    color: #333;
+}
+
+/* Education Section Styles */
+.education {
+    margin-bottom: 50px;
+    width: 100%;
+}
+
+.education .section-title {
+    font-size: 32px;
+    text-align: left; /* Slightly left align the heading */
+    margin-bottom: 20px;
+    margin-left: 140px; /* Push heading slightly to the left */
+}
+
+.education-details {
+    font-size: 18px;
+    line-height: 1.6;
+    color: #333;
+    padding-left: 140px; /* Push content slightly to the right */
+}
+
+.education-details p {
+    margin: 8px 0;
+}
+
+.education-details a {
+    color: #007BFF;
+    text-decoration: none;
+}
+
+.education-details a:hover {
+    text-decoration: underline;
+}
+
+@media screen and (max-width: 768px) {
+    .education-details {
+        padding-left: 20px; /* Adjust padding on smaller screens */
+    }
+
+    .education .section-title {
+        margin-left: 15px; /* Reduce margin for smaller screens */
+    }
+}
+
+/* Blog Section Styles */
+.blog {
+    padding: 50px 15px;         /* Padding around the content */
+    margin-top: 50px;           /* Space above the section */
+    text-align: left;           /* Align text to the left */
+    margin-left: 15%;           /* Push content to the right slightly */
+}
+
+/* Blog Title */
+.blog .section-title {
+    font-size: 32px;
+    font-weight: 600;
+    margin-bottom: 20px;        /* Add space below the title */
+    color: #333;  
+    margin-left: -60px;              /* Dark color for the title */
+}
+
+/* Blog Description */
+.blog p {
+    font-size: 18px;
+    color: #555;                /* Slightly lighter color for description text */
+    margin-bottom: 20px;        /* Add space below the description */
+    max-width: 800px;           /* Max width to prevent the text from stretching too wide */
+    margin-left: 0;             /* Center align the paragraph */
+    line-height: 1.6;           /* Increased line height for better readability */
+    margin-left: -60px;
+}
+
+/* Blog Link */
+.blog a {
+    font-size: 18px;
+    color: #007BFF;             /* Blue color for the link */
+    text-decoration: none;      /* Remove underline from link */
+    font-weight: bold;          /* Make the link bold */
+    transition: color 0.3s ease; /* Smooth transition on hover */
+}
+
+/* Blog Link Hover Effect */
+.blog a:hover {
+    color: #0056b3;             /* Darker blue when hovered */
+}
+
+/* Responsive Design for Smaller Screens */
+@media screen and (max-width: 768px) {
+    .blog {
+        padding: 30px 15px;     /* Reduce padding on smaller screens */
+        margin-left: 10%;       /* Push content further to the right */
+    }
+
+    .blog p {
+        font-size: 16px;         /* Slightly smaller font size on mobile */
+    }
+
+    .blog a {
+        font-size: 16px;         /* Adjust font size of the link on mobile */
+    }
+}
+
+
+footer {
+    text-align: center;
+    background-color: #333;
+    color: white;
+    padding: 20px;
+}
+.quote-section {
+    text-align: center;
+    background-color: #f1f1f1;
+    padding: 50px;
+}
+.quote-section h2 {
+    font-size: 36px;
+    margin: 0;
+}
+.quote-section a {
+    font-size: 18px;
+    text-decoration: none;
+    color: #007BFF;
+}
+.quote-section a:hover {
+    color: #0056b3;
+}
