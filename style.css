@@ -1,4 +1,4 @@
-/* General Reset */
+/* RESET */
 body {
     font-family: 'Roboto', sans-serif;
     margin: 0;
@@ -7,472 +7,155 @@ body {
     color: #333;
 }
 
-/* Header Styles */
-header {
-    background-color: #222;
-    color: rgb(238, 232, 232);
-    padding: 20px;
-    text-align: left;
-    width: 100%;
-}
-
-header h1 {
-    margin: 0;
-    font-size: 36px;
-    font-weight: 600;
-    margin-left: 275px;
-}
-
-/* Container to align content */
 .container {
     width: 80%;
     margin: 0 auto;
 }
 
-/* Simple summary paragraph */
-.simple-summary p {
-    font-size: 20px;
-    font-weight: 400;
-    color: #333;
-    line-height: 1.6;
-    max-width: 900px;
-    margin: 0 auto;
-    padding: 0 20px;
-    text-align: justify;
+nav {
+    background-color: #222;
+    padding: 35px 0;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 1000;
 }
 
-/* Section Title Styles */
+nav ul {
+    display: flex;
+    justify-content: center;
+    list-style: none;
+}
+
+nav ul li {
+    margin: 0 25px;
+}
+
+nav ul li a {
+    color: #fff;
+    text-decoration: none;
+    font-size: 15px;
+    transition: 0.3s;
+}
+
+nav ul li:first-child a {
+    font-weight: 700;
+    font-size: 18px;
+}
+
+nav ul li a:hover {
+    color: #007bff;
+}
+
+body {
+    padding-top: 90px;
+}
+
+/* Section Titles */
 .section-title {
     font-size: 32px;
     margin-top: 50px;
-    text-align: left;
-    margin-left: 150px;
+    margin-left: 120px;
 }
 
-/* Skill Group Grid */
+/* About */
+.simple-summary p {
+    font-size: 20px;
+    text-align: justify;
+    max-width: 900px;
+    margin-left: 120px;
+}
+
+/* Skills */
 .skill-groups {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     gap: 40px;
-    padding-left: 150px;
+    padding-left: 120px;
     margin-top: 30px;
-}
-
-.skill-category {
-    text-align: left;
 }
 
 .skill-category h3 {
+    color: #007bff;
     margin-bottom: 8px;
-    font-size: 20px;
-    color: #007BFF;
 }
 
-.skill-category p {
-    font-size: 16px;
-    color: #333;
-    margin: 0;
+/* Experience */
+.experience-card {
+    background: white;
+    padding: 20px;
+    margin: 20px 100px;
+    border-left: 4px solid #007bff;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.05);
 }
 
-/* Adjust grid for second row items */
-.skill-groups > :nth-child(4) {
-    grid-column: 1 / 2;
-}
-.skill-groups > :nth-child(5) {
-    grid-column: 2 / 3;
+.date {
+    color: gray;
+    margin-bottom: 10px;
 }
 
-/* New Section Styles for Contact Information */
-.contact {
-    margin-top: 50px;
-    padding-left: 140px;
-}
-
-.contact .section-title {
-    font-size: 32px;
-    margin-bottom: 20px;
-}
-
-.contact ul {
-    list-style-type: none;
-    padding: 0;
-}
-
-.contact li {
-    font-size: 18px;
-    margin: 10px 0;
-}
-
-.contact a {
-    color: #007BFF;
-    text-decoration: none;
-}
-
-.contact a:hover {
-    text-decoration: underline;
-}
-
-/* Project List Styles */
+/* Projects */
 .project-list {
     display: flex;
     flex-direction: column;
-    gap: 30px;
-    padding: 0 80px;
-    margin-top: 30px;
-    margin-left: 67px;
+    gap: 25px;
+    padding: 0 120px;
 }
 
 .project {
-    background-color: #ffffff;
+    background: white;
     padding: 20px;
-    border-left: 4px solid #007BFF;
-    box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.05);
+    border-left: 4px solid #007bff;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.05);
 }
 
-.project h3 {
-    margin: 0 0 10px 0;
-    font-size: 22px;
-    color: #007BFF;
-}
-
-.project a {
+.project h3 a {
+    color: #007bff;
     text-decoration: none;
-    color: #007BFF;
 }
 
-.project p {
-    margin: 0;
-    font-size: 16px;
-    color: #333;
-}
-
-/* Education Section Styles */
-.education {
-    margin-bottom: 50px;
-    width: 100%;
-}
-
-.education .section-title {
-    font-size: 32px;
-    text-align: left;
-    margin-bottom: 20px;
-    margin-left: 140px;
-}
-
+/* Education */
 .education-details {
+    padding-left: 120px;
     font-size: 18px;
-    line-height: 1.6;
-    color: #333;
-    padding-left: 140px;
 }
 
-.education-details p {
-    margin: 8px 0;
+/* Contact */
+#contact ul {
+    padding-left: 120px;
+    list-style: none;
 }
 
-.education-details a {
-    color: #007BFF;
+#contact a {
+    color: #007bff;
     text-decoration: none;
 }
 
-.education-details a:hover {
-    text-decoration: underline;
-}
-
-/* Blog Section Styles */
-.blog {
-    padding: 50px 15px;
-    margin-top: 50px;
-    text-align: left;
-    margin-left: 15%;
-}
-
-.blog .section-title {
-    font-size: 32px;
-    font-weight: 600;
-    margin-bottom: 20px;
-    color: #333;
-    margin-left: -60px;
-}
-
-.blog p {
-    font-size: 18px;
-    color: #555;
-    margin-bottom: 20px;
-    max-width: 800px;
-    margin-left: 0;
-    line-height: 1.6;
-    margin-left: -60px;
-}
-
-.blog a {
-    font-size: 18px;
-    color: #007BFF;
-    text-decoration: none;
-    font-weight: bold;
-    transition: color 0.3s ease;
-}
-
-.blog a:hover {
-    color: #0056b3;
-}
-
-/* Footer Styles */
+/* Footer */
 footer {
-    text-align: center;
     background-color: #333;
     color: white;
-    padding: 20px;
-}
-
-/* Quote Section Styles */
-.quote-section {
     text-align: center;
-    background-color: #f1f1f1;
-    padding: 50px;
+    padding: 15px;
 }
 
-.quote-section h2 {
-    font-size: 36px;
-    margin: 0;
-}
-
-.quote-section a {
-    font-size: 18px;
-    text-decoration: none;
-    color: #007BFF;
-}
-
-.quote-section a:hover {
-    color: #0056b3;
-}
-
-
-/* Navigation Bar Styles */
-nav {
-    background-color: #222;
-    color: rgb(33, 27, 27);
-    padding: 38px 0; /* Increased padding for header */
-    position: fixed;
-    top: 0;
-    width: 100%;
-    z-index: 1000;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-    transition: background-color 0.3s ease;
-}
-
-/* Navigation Menu List */
-nav ul {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    list-style: none;
-    margin: 0;
-    padding: 0;
-}
-
-/* Navigation List Items */
-nav ul li {
-    margin: 0 25px;
-    transition: transform 0.3s ease;
-}
-
-/* Navigation Links */
-nav ul li a {
-    color: #f7f7f7;
-    text-decoration: none;
-    font-size: 15px;
-    font-weight: 300; /* Slimmer font for general items */
-    text-transform: uppercase;
-    padding: 5px 0;
-    letter-spacing: 1px;
-    transition: color 0.3s ease, transform 0.3s ease;
-}
-
-/* Bold "Zia ur Rehman" only */
-nav ul li:first-child a {
-    font-weight: 700;
-    font-size: 17px;
-    letter-spacing: 2px;
-}
-
-/* Hover Effects */
-nav ul li a:hover {
-    color: #007BFF;
-    transform: scale(1.1);
-}
-
-/* Responsive: Hide all menu items except the first one on small screens */
+/* MOBILE RESPONSIVE */
 @media (max-width: 768px) {
-    nav ul li:not(:first-child) {
-        display: none;
-    }
-
-    nav {
-        justify-content: flex-start;
-        padding-left: 20px;
-    }
-
-    nav ul {
-        justify-content: flex-start;
-    }
-}
-
-/* Body padding to avoid content overlap */
-body {
-    padding-top: 90px; /* Increased padding since header height grew */
-}
-
-
-
-
-/* Responsive Design for Smaller Screens */
-@media screen and (max-width: 1200px) {
-    header h1 {
-        font-size: 30px;
-        margin-left: 20px;
-    }
-
-    .section-title {
-        font-size: 28px;
-        margin-left: 20px;
-    }
-
-    .skill-groups {
-        grid-template-columns: repeat(2, 1fr);
-        padding-left: 50px;
-    }
-
-    .project-list {
-        padding: 0 20px;
-    }
-
-    .education .section-title {
-        margin-left: 20px;
-    }
-
-    .education-details {
-        padding-left: 20px;
-    }
-
-    .blog {
-        margin-left: 10%;
-    }
-}
-
-@media screen and (max-width: 768px) {
-    /* For Tablets and Mobile */
-    header h1 {
-        font-size: 24px;
+    .section-title,
+    .simple-summary p,
+    .skill-groups,
+    .project-list,
+    .education-details,
+    #contact ul {
         margin-left: 0;
-        text-align: center;
-    }
-
-    .section-title {
-        font-size: 24px;
-        margin-left: 0;
+        padding-left: 20px;
     }
 
     .skill-groups {
         grid-template-columns: 1fr;
-        padding-left: 20px;
     }
 
-    .project-list {
-        padding: 0 10px;
-    }
-
-    .education .section-title,
-    .blog .section-title {
-        font-size: 28px;
-        margin-left: 0;
-    }
-
-    .education-details,
-    .blog p {
-        font-size: 16px;
-        padding-left: 20px;
-    }
-
-    .quote-section h2 {
-        font-size: 30px;
-    }
-}
-
-@media screen and (max-width: 480px) {
-    /* For Mobile Devices */
-    header h1 {
-        font-size: 22px;
-        text-align: center;
-    }
-
-    .section-title {
-        font-size: 20px;
-    }
-
-    .skill-groups {
-        grid-template-columns: 1fr;
-        padding-left: 10px;
-    }
-
-    .project-list {
-        padding: 0 5px;
-    }
-
-    .education-details,
-    .blog p {
-        font-size: 14px;
-        padding-left: 10px;
-    }
-
-    .quote-section h2 {
-        font-size: 24px;
-    }
-
-    footer {
-        padding: 10px;
-    }
-}
-
-
-/* Responsive styles for Work Experience section */
-@media (max-width: 768px) {
-    #experience {
-        padding: 40px 15px;
-    }
-
-    #experience h2 {
-        font-size: 22px;
-        margin-right: 0; /* remove large right margin on smaller screens */
-        text-align: left;
-    }
-
-    #experience div {
-        width: 100%;
-    }
-
-    #experience h3 {
-        font-size: 18px;
-    }
-
-    #experience ul {
-        padding-left: 15px;
-    }
-
-    #experience li {
-        font-size: 14px;
-    }
-}
-
-
-@media (max-width: 768px) {
-    .project-list {
-        flex-direction: column;
-        align-items: center;
-    }
-
-    .project {
-        max-width: 100%;
-        flex: 1 1 100%;
+    .experience-card {
+        margin: 20px;
     }
 }
