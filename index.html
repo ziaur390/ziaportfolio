@@ -1,9 +1,11 @@
+<!DOCTYPE html>
+<html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Zia ur Rahman's Portfolio</title>
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap" rel="stylesheet">
-    <!-- Link to external CSS file -->
     <link rel="stylesheet" href="style.css">
 </head>
 
@@ -12,143 +14,167 @@
     <!-- Navigation Bar -->
     <nav>
         <ul>
-            <li><a href="#summary">zia ur rahman</a></li>
-            <li><a href="#summary">About Me</a></li>
+            <li><a href="#summary">Zia ur Rahman</a></li>
+            <li><a href="#summary">About</a></li>
             <li><a href="#skills">Skills</a></li>
             <li><a href="#projects">Projects</a></li>
+            <li><a href="#experience">Experience</a></li>
             <li><a href="#education">Education</a></li>
             <li><a href="#contact">Contact</a></li>
-            <li><a href="#blog">Blog</a></li>
         </ul>
     </nav>
 
- 
-
     <div class="container">
-        <!-- Professional Summary Section -->
-        <section class="summary" id="summary">
+
+        <!-- About Me -->
+        <section id="summary">
             <h2 class="section-title">About Me</h2>
             <div class="simple-summary">
                 <p>
-                    Motivated and self-taught MLOps enthusiast currently pursuing a Bachelor’s degree in Computer Science. Passionate about automating ML workflows, deploying scalable models, and learning real-world DevOps tools. Experienced in project-based learning, including containerization, CI/CD pipelines, and cloud technologies. Eager to contribute to impactful projects and grow as an MLOps engineer.
+                    Final-year Computer Science student specializing in DevOps, Cloud, MLOps, and Deep Learning.
+                    Experienced with containerization, cloud deployments, CI/CD pipelines, ML model development, and
+                    scalable backends. Project-based learner with real-world engineering mindset.
                 </p>
             </div>
         </section>
 
-    
-
-        <!-- Skills Section -->
-        <section class="skills" id="skills">
+        <!-- Skills -->
+        <section id="skills">
             <h2 class="section-title">Skills</h2>
+
             <div class="skill-groups">
+
                 <div class="skill-category">
-                    <h3>Languages</h3>
-                    <p>Python, Bash, YAML, SQL, C++, C#</p>
+                    <h3>DevOps & Cloud</h3>
+                    <p>Docker, Docker Compose, Jenkins, Git, GitHub, CI/CD, Linux, Kubernetes, Terraform</p>
+                    <p>AWS EC2, S3, IAM</p>
                 </div>
+
                 <div class="skill-category">
-                    <h3>MLOps Tools</h3>
-                    <p>Docker, Kubernetes, MLflow, DVC, Git, GitHub Actions</p>
+                    <h3>Machine Learning & AI</h3>
+                    <p>Python, NumPy, Pandas, Scikit-learn</p>
+                    <p>PyTorch, TensorFlow, Keras</p>
+                    <p>CNNs, Transfer Learning, YOLO</p>
                 </div>
+
                 <div class="skill-category">
-                    <h3>ML Frameworks</h3>
-                    <p>Scikit-learn, TensorFlow, PyTorch</p>
+                    <h3>Backend & APIs</h3>
+                    <p>FastAPI, Flask, REST APIs, Nginx</p>
                 </div>
+
                 <div class="skill-category">
-                    <h3>DevOps</h3>
-                    <p>CI/CD, Linux, Jenkins, Grafana</p>
+                    <h3>Programming</h3>
+                    <p>Python, C++, C#, JavaScript</p>
                 </div>
+
                 <div class="skill-category">
-                    <h3>Cloud & APIs</h3>
-                    <p>GCP (Basics), Azure (Basics), FastAPI, Flask</p>
+                    <h3>Software Development</h3>
+                    <p>.NET (WinForms), SQL Server, MySQL, HTML, CSS, Bootstrap</p>
                 </div>
+
             </div>
         </section>
 
-        <section id="experience" style="padding: 60px 20px; background-color: #f9f9f9;">
-            <h2 style="text-align: center; font-size: 28px; margin-bottom: 40px; margin-right: 700px;">Work Experience</h2>
-        
-            <div style="max-width: 800px; margin: 0 auto;">
-                <div style="margin-bottom: 30px;">
-                    <h3 style="margin: 0;color: #007BFF;">Intern — Sino-Pak Centre for Artificial Intelligence</h3>
-                    <p style="margin: 5px 0; color: gray;">July 2023 – October 2023</p>
-                    <ul style="padding-left: 20px; line-height: 1.6;">
-                        <li>Worked on machine learning model development and experimentation.</li>
-                        <li>Used TensorFlow and PyTorch for building and training deep learning models.</li>
-                    </ul>
-                </div>
-        
-                <div>
-                    <h3 style="margin: 0;color: #007BFF;">Intern — Commrex</h3>
-                    <p style="margin: 5px 0; color: gray;">July 2024 – September 2024</p>
-                    <ul style="padding-left: 20px; line-height: 1.6;">
-                        <li>Focused on MLOps and DevOps for automating and scaling ML workflows.</li>
-                        <li>Worked with CI/CD pipelines, containerization (Docker), and deployment tools.</li>
-                        <li>Contributed to real-world machine learning infrastructure and monitoring setups.</li>
-                    </ul>
-                </div>
+        <!-- Experience -->
+        <section id="experience">
+            <h2 class="section-title">Internship Experience</h2>
+
+            <div class="experience-card">
+                <h3>DevOps & Cloud Intern — SPCAI</h3>
+                <p class="date">Jul 2023 – Sep 2023</p>
+                <ul>
+                    <li>Worked with Docker, Git, CI/CD automation, Linux, and AWS EC2/S3 deployments.</li>
+                    <li>Assisted in building scalable and containerized cloud systems.</li>
+                </ul>
+            </div>
+
+            <div class="experience-card">
+                <h3>Software Engineering Intern — Waqas Communication</h3>
+                <p class="date">Jun 2024 – Aug 2024</p>
+                <ul>
+                    <li>Developed .NET WinForms apps with SQL Server backend.</li>
+                    <li>Improved UI, dashboards, and CRUD functionality.</li>
+                </ul>
+            </div>
+
+            <div class="experience-card">
+                <h3>AI & RAG Intern — ATS UK</h3>
+                <p class="date">Aug 2025 – Oct 2025</p>
+                <ul>
+                    <li>Built RAG pipelines using embeddings and vector databases.</li>
+                    <li>Integrated ML models into production-like chatbot systems.</li>
+                </ul>
             </div>
         </section>
-        
 
-        <!-- Projects Section -->
-        <section class="projects" id="projects">
+        <!-- Projects -->
+        <section id="projects">
             <h2 class="section-title">Projects</h2>
+
             <div class="project-list">
+
                 <div class="project">
-                    <h3><a href="https://github.com/ziaur390/mlops-ci-cd-pipeline" target="_blank">CI/CD Pipeline for ML Model Deployment</a></h3>
-                    <p>Implemented a complete CI/CD pipeline for a Titanic survival prediction model...</p>
+                    <h3><a href="https://github.com/ziaur390/mlops-ci-cd-pipeline" target="_blank">MLOps CI/CD Pipeline</a></h3>
+                    <p>Automated ML training + deployment using Jenkins, Docker, GitHub, and FastAPI.</p>
                 </div>
 
                 <div class="project">
-                    <h3><a href="https://github.com/ziaur390/fastapi-ml-docker" target="_blank">Dockerized ML App with FastAPI</a></h3>
-                    <p>Built and containerized a lightweight machine learning application...</p>
+                    <h3><a href="https://github.com/ziaur390/fastapi-ml-docker" target="_blank">FastAPI ML Deployment (Dockerized)</a></h3>
+                    <p>Containerized ML inference API using FastAPI and Docker Compose.</p>
                 </div>
 
                 <div class="project">
-                    <h3><a href="https://github.com/ziaur390/deploy-ml-loan-predictor" target="_blank">Loan Approval Classifier on Azure</a></h3>
-                    <p>Developed and deployed an MLOps pipeline on Microsoft Azure...</p>
+                    <h3><a href="https://github.com/ziaur390/deploy-ml-loan-predictor" target="_blank">Loan Predictor Deployment</a></h3>
+                    <p>End-to-end ML deployment with UI and FastAPI backend.</p>
+                </div>
+
+                <div class="project">
+                    <h3><a href="https://github.com/ziaur390/Pakistan-Real-estate-asistant" target="_blank">Pakistan Real Estate RAG Assistant</a></h3>
+                    <p>Built a full RAG pipeline with embeddings + vector DB search.</p>
+                </div>
+
+                <div class="project">
+                    <h3><a href="https://github.com/ziaur390/Flower-Classification-and-Detection-using-AlexNet-and-YOLOv9" target="_blank">Flower Classification & Detection</a></h3>
+                    <p>Developed AlexNet classifier + YOLOv9 detector on custom dataset.</p>
                 </div>
 
                 <div class="project">
                     <h3><a href="https://github.com/ziaur390/pharmacy-management-system" target="_blank">Pharmacy Management System</a></h3>
-                    <p>A desktop-based Pharmacy Management System developed using C# and SQL Server to manage medicines...</p>
+                    <p>Desktop management system using C# + SQL Server.</p>
                 </div>
+
             </div>
         </section>
 
-        <!-- Education Section -->
-        <section class="education" id="education">
+        <!-- Education -->
+        <section id="education">
             <h2 class="section-title">Education</h2>
+
             <div class="education-details">
-                <p><strong>Bachelor of Science in Computer Science</strong>, Pak-Austria Fachhochschule Institute of Applied Sciences and Technology, Haripur, Pakistan</p>
-                <p><strong>Expected Graduation</strong>: 2026</p>
-                <p><strong>Project-Based Curriculum & Self-Driven Learning</strong> in MLOps, Machine Learning, and DevOps</p>
-                <p><strong>University Website</strong>: <a href="https://www.paf-iast.edu.pk" target="_blank">www.paf-iast.edu.pk</a></p>
+                <p><strong>Bachelor of Science in Computer Science</strong></p>
+                <p>Pak-Austria Fachhochschule Institute of Applied Sciences and Technology</p>
+                <p><strong>Expected Graduation:</strong> 2026</p>
             </div>
+
         </section>
 
-        <!-- Contact Section -->
-        <section class="contact" id="contact">
-            <h2 class="section-title">Contact Information</h2>
-            <p>You can reach me through the following platforms:</p>
+        <!-- Contact -->
+        <section id="contact">
+            <h2 class="section-title">Contact</h2>
             <ul>
-                <li><strong>GitHub</strong>: <a href="https://github.com/ziaur390" target="_blank">github.com/ziaur390</a></li>
-                <li><strong>Email</strong>: <a href="mailto:ziaurrahman.26261@gmail.com">ziaurrahman.26261@gmail.com</a></li>
+                <li><strong>Email:</strong> <a href="mailto:ziaurrahman.26261@gmail.com">ziaurrahman.26261@gmail.com</a></li>
+                <li><strong>GitHub:</strong> <a href="https://github.com/ziaur390" target="_blank">github.com/ziaur390</a></li>
+                <li><strong>Portfolio:</strong> <a href="https://ziarahman.netlify.app" target="_blank">ziarahman.netlify.app</a></li>
             </ul>
         </section>
 
-        <!-- Blog Section -->
-        <section class="blog" id="blog">
-            <h2 class="section-title">Blog</h2>
-            <p>Check out my blog for more insights on MLOps, DevOps, and Machine Learning!</p>
-            <a href="https://github.com/ziaur390" target="_blank">Visit My Blog</a>
-        </section>
     </div>
 
-    <!-- Footer Section -->
+    <!-- Footer -->
     <footer>
         <p>&copy; 2025 Zia ur Rahman | All Rights Reserved</p>
     </footer>
 
 </body>
+
 </html>
