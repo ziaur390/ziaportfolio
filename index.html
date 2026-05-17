@@ -1,558 +1,423 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>Zia ur Rahman — AI Engineer, MLOps & Computer Vision Specialist</title>
-<link rel="preconnect" href="https://fonts.googleapis.com" />
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-<link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700;800&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,300&display=swap" rel="stylesheet" />
-<style>
-  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-  :root {
-    --black: #0A0A0F; --off-black: #111118; --surface: #16161E; --surface2: #1E1E28;
-    --border: rgba(255,255,255,0.08); --border-bright: rgba(255,255,255,0.15);
-    --accent: #00E5A0; --accent2: #7B61FF; --accent3: #FF6B35;
-    --text: #F0EEF8; --text-secondary: #9895A8; --text-muted: #5A5868;
-    --font-display: 'Syne', sans-serif; --font-body: 'DM Sans', sans-serif;
-    --radius: 12px; --radius-lg: 20px; --transition: 0.3s cubic-bezier(0.4,0,0.2,1);
-  }
-  html { scroll-behavior: smooth; }
-  body { background: var(--black); color: var(--text); font-family: var(--font-body); font-size: 16px; line-height: 1.7; overflow-x: hidden; }
-
-  nav {
-    position: fixed; top: 0; left: 0; right: 0; z-index: 100;
-    background: rgba(10,10,15,0.88); backdrop-filter: blur(16px);
-    border-bottom: 1px solid var(--border);
-    padding: 0 clamp(1.5rem,5vw,4rem); height: 64px;
-    display: flex; align-items: center; justify-content: space-between;
-  }
-  .nav-logo { font-family: var(--font-display); font-size: 1.1rem; font-weight: 700; color: var(--text); text-decoration: none; letter-spacing: -0.02em; }
-  .nav-logo span { color: var(--accent); }
-  .nav-links { display: flex; gap: 1.75rem; list-style: none; }
-  .nav-links a { font-size: 0.875rem; color: var(--text-secondary); text-decoration: none; transition: color var(--transition); }
-  .nav-links a:hover { color: var(--accent); }
-  .nav-cta { background: var(--accent); color: var(--black) !important; font-weight: 600 !important; padding: 0.45rem 1.1rem; border-radius: 6px; }
-
-  section { padding: clamp(5rem,9vw,7.5rem) clamp(1.5rem,8vw,8rem); }
-  .section-label { font-family: var(--font-display); font-size: 0.72rem; font-weight: 600; letter-spacing: 0.15em; text-transform: uppercase; color: var(--accent); margin-bottom: 0.85rem; display: flex; align-items: center; gap: 0.75rem; }
-  .section-label::after { content: ''; flex: 1; max-width: 40px; height: 1px; background: var(--accent); opacity: 0.4; }
-  h2.section-title { font-family: var(--font-display); font-size: clamp(1.9rem,4vw,2.8rem); font-weight: 700; line-height: 1.1; letter-spacing: -0.03em; margin-bottom: 1rem; }
-
-  #hero { min-height: 100vh; display: flex; flex-direction: column; justify-content: center; padding-top: 6rem; position: relative; overflow: hidden; }
-  .hero-bg { position: absolute; inset: 0; z-index: 0; background: radial-gradient(ellipse 60% 50% at 70% 40%, rgba(0,229,160,0.07) 0%, transparent 60%), radial-gradient(ellipse 40% 40% at 20% 80%, rgba(123,97,255,0.08) 0%, transparent 55%); }
-  .hero-grid { position: absolute; inset: 0; z-index: 0; opacity: 0.03; background-image: linear-gradient(rgba(255,255,255,0.5) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.5) 1px, transparent 1px); background-size: 60px 60px; }
-  .hero-content { position: relative; z-index: 1; max-width: 950px; }
-  .hero-badge { display: inline-flex; align-items: center; gap: 0.5rem; background: rgba(0,229,160,0.1); border: 1px solid rgba(0,229,160,0.25); border-radius: 100px; padding: 0.35rem 1rem; font-size: 0.8rem; font-weight: 500; color: var(--accent); margin-bottom: 1.5rem; }
-  .hero-badge-dot { width: 7px; height: 7px; background: var(--accent); border-radius: 50%; animation: pulse 2s ease-in-out infinite; }
-  @keyframes pulse { 0%,100%{opacity:1;transform:scale(1)} 50%{opacity:0.5;transform:scale(0.7)} }
-  h1.hero-title { font-family: var(--font-display); font-size: clamp(2.8rem,7vw,5.2rem); font-weight: 800; line-height: 1.0; letter-spacing: -0.04em; margin-bottom: 1.5rem; }
-  h1.hero-title .acc { color: var(--accent); }
-  h1.hero-title .mut { color: var(--text-secondary); }
-  .hero-sub { font-size: clamp(1rem,2vw,1.15rem); color: var(--text-secondary); font-weight: 300; max-width: 620px; margin-bottom: 2.5rem; line-height: 1.8; }
-  .hero-actions { display: flex; gap: 1rem; flex-wrap: wrap; align-items: center; }
-  .btn-primary { background: var(--accent); color: var(--black); font-family: var(--font-body); font-size: 0.9rem; font-weight: 600; padding: 0.8rem 2rem; border-radius: 8px; border: none; cursor: pointer; text-decoration: none; transition: opacity var(--transition), transform var(--transition); }
-  .btn-primary:hover { opacity: 0.85; transform: translateY(-1px); }
-  .btn-outline { background: transparent; color: var(--text); font-family: var(--font-body); font-size: 0.9rem; font-weight: 500; padding: 0.8rem 2rem; border-radius: 8px; border: 1px solid var(--border-bright); cursor: pointer; text-decoration: none; transition: border-color var(--transition), background var(--transition); }
-  .btn-outline:hover { border-color: var(--accent); background: rgba(0,229,160,0.05); }
-  .hero-stats { display: flex; gap: 3rem; flex-wrap: wrap; margin-top: 4rem; padding-top: 2.5rem; border-top: 1px solid var(--border); }
-  .hero-stat-num { font-family: var(--font-display); font-size: 2rem; font-weight: 800; letter-spacing: -0.04em; line-height: 1; }
-  .hero-stat-num span { color: var(--accent); }
-  .hero-stat-label { font-size: 0.78rem; color: var(--text-muted); letter-spacing: 0.05em; text-transform: uppercase; margin-top: 0.25rem; }
-
-  #about { background: var(--off-black); }
-  .about-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 5rem; align-items: start; }
-  .about-text p { color: var(--text-secondary); margin-bottom: 1.25rem; font-weight: 300; }
-  .about-text p strong { color: var(--text); font-weight: 500; }
-  .about-highlights { display: flex; flex-direction: column; gap: 0.75rem; margin-top: 2rem; }
-  .highlight-item { display: flex; align-items: flex-start; gap: 1rem; padding: 1rem 1.25rem; background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius); transition: border-color var(--transition); }
-  .highlight-item:hover { border-color: rgba(0,229,160,0.3); }
-  .highlight-icon { width: 36px; height: 36px; border-radius: 8px; background: rgba(0,229,160,0.1); display: flex; align-items: center; justify-content: center; font-size: 1rem; flex-shrink: 0; }
-  .highlight-title { font-weight: 500; font-size: 0.88rem; margin-bottom: 0.2rem; }
-  .highlight-desc { font-size: 0.8rem; color: var(--text-secondary); }
-  .about-card { background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius-lg); padding: 2rem; position: sticky; top: 5rem; }
-  .about-avatar { width: 76px; height: 76px; border-radius: 50%; background: linear-gradient(135deg,rgba(0,229,160,0.3),rgba(123,97,255,0.3)); display: flex; align-items: center; justify-content: center; font-family: var(--font-display); font-size: 1.5rem; font-weight: 800; color: var(--accent); margin-bottom: 1.25rem; border: 2px solid rgba(0,229,160,0.3); }
-  .about-name { font-family: var(--font-display); font-size: 1.25rem; font-weight: 700; margin-bottom: 0.25rem; }
-  .about-role { font-size: 0.82rem; color: var(--accent); font-weight: 500; margin-bottom: 1.5rem; line-height: 1.5; }
-  .about-tags { display: flex; flex-wrap: wrap; gap: 0.4rem; margin-bottom: 1.5rem; }
-  .tag { font-size: 0.72rem; font-weight: 500; padding: 0.28rem 0.7rem; border-radius: 100px; background: rgba(123,97,255,0.12); border: 1px solid rgba(123,97,255,0.25); color: #A89BFF; }
-  .tag.acc { background: rgba(0,229,160,0.1); border-color: rgba(0,229,160,0.25); color: var(--accent); }
-  .tag.org { background: rgba(255,107,53,0.1); border-color: rgba(255,107,53,0.25); color: #FF9770; }
-  .about-info-row { display: flex; justify-content: space-between; padding: 0.65rem 0; border-top: 1px solid var(--border); font-size: 0.83rem; }
-  .about-info-row span:first-child { color: var(--text-secondary); }
-  .about-info-row span:last-child { color: var(--text); font-weight: 500; }
-
-  .skills-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(270px,1fr)); gap: 1.25rem; }
-  .skill-card { background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius-lg); padding: 1.6rem; transition: border-color var(--transition), transform var(--transition); }
-  .skill-card:hover { border-color: rgba(0,229,160,0.25); transform: translateY(-2px); }
-  .skill-card-header { display: flex; align-items: center; gap: 0.75rem; margin-bottom: 1.1rem; }
-  .ski { width: 38px; height: 38px; border-radius: 10px; display: flex; align-items: center; justify-content: center; font-size: 1rem; }
-  .ski.g { background: rgba(0,229,160,0.12); } .ski.p { background: rgba(123,97,255,0.12); }
-  .ski.o { background: rgba(255,107,53,0.12); } .ski.b { background: rgba(56,189,248,0.12); }
-  .ski.r { background: rgba(248,113,113,0.12); } .ski.t { background: rgba(45,212,191,0.12); }
-  .skill-card-title { font-family: var(--font-display); font-size: 0.9rem; font-weight: 700; }
-  .skill-tags { display: flex; flex-wrap: wrap; gap: 0.35rem; }
-  .skill-tag { font-size: 0.73rem; color: var(--text-secondary); background: var(--surface2); border: 1px solid var(--border); padding: 0.22rem 0.55rem; border-radius: 4px; }
-
-  #experience { background: var(--off-black); }
-  .exp-timeline { display: flex; flex-direction: column; max-width: 820px; }
-  .exp-item { display: grid; grid-template-columns: 175px 1fr; gap: 2rem; padding-bottom: 3rem; position: relative; }
-  .exp-item::before { content: ''; position: absolute; left: 175px; top: 10px; bottom: 0; width: 1px; background: var(--border); }
-  .exp-item:last-child::before { display: none; }
-  .exp-item::after { content: ''; position: absolute; left: calc(175px - 5px); top: 10px; width: 11px; height: 11px; border-radius: 50%; background: var(--accent); border: 2px solid var(--black); }
-  .exp-date { font-size: 0.78rem; color: var(--text-muted); padding-top: 0.15rem; text-align: right; line-height: 1.5; }
-  .exp-body { padding-left: 2rem; }
-  .exp-company { font-size: 0.75rem; color: var(--accent); font-weight: 600; letter-spacing: 0.06em; text-transform: uppercase; margin-bottom: 0.25rem; }
-  .exp-role { font-family: var(--font-display); font-size: 1.05rem; font-weight: 700; margin-bottom: 0.7rem; }
-  .exp-tags { display: flex; flex-wrap: wrap; gap: 0.35rem; margin-bottom: 0.85rem; }
-  .exp-tag { font-size: 0.7rem; background: var(--surface2); border: 1px solid var(--border); color: var(--text-secondary); padding: 0.2rem 0.55rem; border-radius: 4px; }
-  .exp-points { list-style: none; display: flex; flex-direction: column; gap: 0.45rem; }
-  .exp-points li { font-size: 0.88rem; color: var(--text-secondary); padding-left: 1rem; position: relative; line-height: 1.6; }
-  .exp-points li::before { content: '→'; position: absolute; left: 0; color: var(--accent); font-size: 0.78rem; top: 0.12rem; }
-
-  .projects-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(320px,1fr)); gap: 1.25rem; }
-  .project-card { background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius-lg); overflow: hidden; transition: border-color var(--transition), transform var(--transition); display: flex; flex-direction: column; }
-  .project-card:hover { border-color: rgba(0,229,160,0.3); transform: translateY(-3px); }
-  .project-card-top { padding: 1.6rem 1.6rem 0; display: flex; justify-content: space-between; align-items: flex-start; }
-  .project-badge { font-size: 0.68rem; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; padding: 0.28rem 0.75rem; border-radius: 100px; }
-  .b-cv { background: rgba(0,229,160,0.12); color: var(--accent); border: 1px solid rgba(0,229,160,0.2); }
-  .b-dl { background: rgba(123,97,255,0.12); color: #A89BFF; border: 1px solid rgba(123,97,255,0.2); }
-  .b-web { background: rgba(56,189,248,0.12); color: #7DD3FA; border: 1px solid rgba(56,189,248,0.2); }
-  .b-ops { background: rgba(255,107,53,0.12); color: #FF9770; border: 1px solid rgba(255,107,53,0.2); }
-  .b-rag { background: rgba(45,212,191,0.12); color: #5EEAD4; border: 1px solid rgba(45,212,191,0.2); }
-  .b-desk { background: rgba(248,113,113,0.12); color: #FCA5A5; border: 1px solid rgba(248,113,113,0.2); }
-  .project-links a { font-size: 0.78rem; color: var(--text-secondary); text-decoration: none; padding: 0.28rem 0.55rem; border-radius: 4px; border: 1px solid var(--border); transition: color var(--transition), border-color var(--transition); }
-  .project-links a:hover { color: var(--accent); border-color: rgba(0,229,160,0.3); }
-  .project-card-body { padding: 1.1rem 1.6rem 1.6rem; flex: 1; display: flex; flex-direction: column; }
-  .project-title { font-family: var(--font-display); font-size: 1.08rem; font-weight: 700; margin-bottom: 0.45rem; letter-spacing: -0.02em; }
-  .project-problem { font-size: 0.72rem; color: var(--text-muted); text-transform: uppercase; letter-spacing: 0.06em; font-weight: 600; margin-bottom: 0.3rem; }
-  .project-desc { font-size: 0.88rem; color: var(--text-secondary); margin-bottom: 0.9rem; line-height: 1.7; flex: 1; }
-  .project-impact { background: rgba(0,229,160,0.06); border: 1px solid rgba(0,229,160,0.15); border-radius: 8px; padding: 0.7rem 0.9rem; margin-bottom: 0.9rem; font-size: 0.8rem; color: var(--accent); line-height: 1.5; }
-  .project-impact strong { display: block; font-size: 0.68rem; letter-spacing: 0.08em; text-transform: uppercase; opacity: 0.7; margin-bottom: 0.2rem; }
-  .project-tech { display: flex; flex-wrap: wrap; gap: 0.35rem; }
-  .tech-pill { font-size: 0.7rem; background: var(--surface2); border: 1px solid var(--border); color: var(--text-secondary); padding: 0.18rem 0.55rem; border-radius: 4px; }
-
-  #education { background: var(--black); }
-  .edu-card { background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius-lg); padding: 2rem 2.5rem; max-width: 720px; display: flex; align-items: flex-start; gap: 1.5rem; transition: border-color var(--transition); }
-  .edu-card:hover { border-color: rgba(0,229,160,0.25); }
-  .edu-icon { width: 56px; height: 56px; border-radius: 14px; background: rgba(0,229,160,0.1); border: 1px solid rgba(0,229,160,0.2); display: flex; align-items: center; justify-content: center; font-size: 1.6rem; flex-shrink: 0; }
-  .edu-degree { font-family: var(--font-display); font-size: 1.15rem; font-weight: 700; margin-bottom: 0.35rem; }
-  .edu-school { font-size: 0.88rem; color: var(--accent); font-weight: 500; margin-bottom: 0.25rem; }
-  .edu-meta { font-size: 0.82rem; color: var(--text-secondary); margin-bottom: 0.75rem; }
-  .edu-focus { font-size: 0.82rem; color: var(--text-secondary); line-height: 1.6; }
-  .edu-focus strong { color: var(--text); font-weight: 500; }
-
-  #certifications { background: var(--off-black); }
-  .certs-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(255px,1fr)); gap: 0.9rem; }
-  .cert-card { background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius); padding: 1.1rem 1.4rem; display: flex; align-items: center; gap: 0.9rem; transition: border-color var(--transition); }
-  .cert-card:hover { border-color: rgba(0,229,160,0.25); }
-  .cert-logo { width: 42px; height: 42px; border-radius: 10px; display: flex; align-items: center; justify-content: center; font-size: 1.2rem; flex-shrink: 0; background: var(--surface2); }
-  .cert-name { font-weight: 500; font-size: 0.88rem; margin-bottom: 0.12rem; }
-  .cert-issuer { font-size: 0.76rem; color: var(--text-secondary); }
-  .cert-year { font-size: 0.68rem; color: var(--accent); font-weight: 600; letter-spacing: 0.05em; text-transform: uppercase; margin-top: 0.18rem; }
-
-  #suggested { background: var(--off-black); border-top: 1px solid var(--border); }
-  .suggested-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; }
-  .suggested-card { background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius-lg); padding: 2rem; position: relative; overflow: hidden; transition: border-color var(--transition); }
-  .suggested-card:hover { border-color: rgba(123,97,255,0.35); }
-  .suggested-card::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 2px; }
-  .suggested-card:nth-child(1)::before { background: linear-gradient(90deg, var(--accent), var(--accent2)); }
-  .suggested-card:nth-child(2)::before { background: linear-gradient(90deg, var(--accent2), var(--accent3)); }
-  .suggested-num { font-family: var(--font-display); font-size: 3rem; font-weight: 800; color: rgba(255,255,255,0.04); position: absolute; right: 1.5rem; top: 0.5rem; line-height: 1; }
-  .suggested-timeline { font-size: 0.7rem; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; color: var(--accent2); margin-bottom: 0.7rem; background: rgba(123,97,255,0.1); border: 1px solid rgba(123,97,255,0.2); display: inline-block; padding: 0.22rem 0.7rem; border-radius: 100px; }
-  .suggested-title { font-family: var(--font-display); font-size: 1.2rem; font-weight: 700; margin-bottom: 0.7rem; letter-spacing: -0.02em; }
-  .suggested-desc { font-size: 0.88rem; color: var(--text-secondary); margin-bottom: 1.1rem; line-height: 1.7; }
-  .suggested-why strong { color: var(--accent); display: block; font-size: 0.7rem; letter-spacing: 0.08em; text-transform: uppercase; margin-bottom: 0.3rem; }
-  .suggested-why { font-size: 0.82rem; color: var(--text-secondary); margin-bottom: 1.1rem; }
-
-  #contact { text-align: center; background: var(--black); position: relative; overflow: hidden; }
-  #contact::before { content: ''; position: absolute; inset: 0; background: radial-gradient(ellipse 60% 60% at 50% 100%, rgba(0,229,160,0.06) 0%, transparent 60%); }
-  .contact-content { position: relative; z-index: 1; max-width: 600px; margin: 0 auto; }
-  .contact-title { font-family: var(--font-display); font-size: clamp(2rem,5vw,3.2rem); font-weight: 800; letter-spacing: -0.04em; margin-bottom: 1rem; }
-  .contact-title span { color: var(--accent); }
-  .contact-sub { color: var(--text-secondary); font-weight: 300; margin-bottom: 2.5rem; line-height: 1.8; }
-  .contact-links { display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap; }
-  .contact-link { display: flex; align-items: center; gap: 0.6rem; padding: 0.75rem 1.5rem; border-radius: 8px; border: 1px solid var(--border-bright); font-size: 0.88rem; color: var(--text); text-decoration: none; font-weight: 500; transition: border-color var(--transition), background var(--transition), color var(--transition); }
-  .contact-link:hover { border-color: var(--accent); background: rgba(0,229,160,0.06); color: var(--accent); }
-  .contact-link-primary { background: var(--accent); color: var(--black); border-color: var(--accent); font-weight: 700; }
-  .contact-link-primary:hover { opacity: 0.85; color: var(--black); }
-
-  footer { border-top: 1px solid var(--border); padding: 2rem clamp(1.5rem,8vw,8rem); display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem; font-size: 0.78rem; color: var(--text-muted); }
-  footer a { color: var(--text-secondary); text-decoration: none; }
-  footer a:hover { color: var(--accent); }
-
-  .fade-up { opacity: 0; transform: translateY(24px); transition: opacity 0.6s ease, transform 0.6s ease; }
-  .fade-up.visible { opacity: 1; transform: translateY(0); }
-
-  @media (max-width: 900px) { .about-grid { grid-template-columns: 1fr; } .suggested-grid { grid-template-columns: 1fr; } }
-  @media (max-width: 768px) { .exp-item { grid-template-columns: 1fr; } .exp-item::before, .exp-item::after { display: none; } .exp-body { padding-left: 0; } .nav-links { display: none; } .hero-stats { gap: 2rem; } .edu-card { flex-direction: column; } }
-</style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Zia ur Rahman — AI Researcher & MLOps Engineer</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
-
-<nav>
-  <a href="#hero" class="nav-logo">zia<span>.</span>dev</a>
-  <ul class="nav-links">
-    <li><a href="#about">About</a></li>
-    <li><a href="#skills">Skills</a></li>
-    <li><a href="#experience">Experience</a></li>
-    <li><a href="#projects">Projects</a></li>
-    <li><a href="#education">Education</a></li>
-    <li><a href="#certifications">Certs</a></li>
-    <li><a href="#contact" class="nav-cta">Hire Me</a></li>
-  </ul>
-</nav>
-
-<!-- ─── HERO ─────────────────────────────────────────────── -->
-<section id="hero">
-  <div class="hero-bg"></div>
-  <div class="hero-grid"></div>
-  <div class="hero-content">
-    <div class="hero-badge">
-      <div class="hero-badge-dot"></div>
-      Applying — JazzWorld AI Associate Programme 2026
-    </div>
-    <h1 class="hero-title">
-      AI Engineer.<br>
-      <span class="acc">MLOps Builder.</span><br>
-      <span class="mut">Impact Driven.</span>
-    </h1>
-    <p class="hero-sub">
-      Computer Science student specialising in Deep Learning, Computer Vision, and Cloud-Native AI Deployment —
-      building systems that go beyond notebooks into CI/CD pipelines, RAG architectures, and intelligent web
-      applications with measurable business impact.
-    </p>
-    <div class="hero-actions">
-      <a href="#projects" class="btn-primary">View Projects</a>
-      <a href="#contact" class="btn-outline">Get In Touch</a>
-    </div>
-    <div class="hero-stats">
-      <div><div class="hero-stat-num">6<span>+</span></div><div class="hero-stat-label">AI / Tech Projects</div></div>
-      <div><div class="hero-stat-num">3<span>×</span></div><div class="hero-stat-label">Industry Internships</div></div>
-      <div><div class="hero-stat-num">RAG<span>+</span></div><div class="hero-stat-label">LLM & Vector DB</div></div>
-      <div><div class="hero-stat-num">CI/CD</div><div class="hero-stat-label">MLOps Pipelines Built</div></div>
-    </div>
-  </div>
-</section>
-
-<!-- ─── ABOUT ────────────────────────────────────────────── -->
-<section id="about">
-  <div class="about-grid">
-    <div class="about-text fade-up">
-      <div class="section-label">About Me</div>
-      <h2 class="section-title">From Model to<br>Production.</h2>
-      <p>I'm a Computer Science student at Pak-Austria Fachhochschule (PAF-IAST), combining <strong>Deep Learning, Computer Vision, and Cloud-Native MLOps</strong> to build AI systems that go all the way — from raw dataset to deployed, scalable service.</p>
-      <p>Across three industry internships at <strong>SPCAI, Ufone Islamabad, and ATS UK</strong>, I've gained rare early-career exposure spanning containerised cloud deployments, enterprise software development in a live telecom environment, and production-grade RAG pipelines with vector databases.</p>
-      <p>I'm currently deepening my stack with the <strong>Claude API, Model Context Protocol (MCP), and AI-assisted development workflows</strong> — positioning myself to deploy AI value inside any JazzWorld domain, from JazzCash and Mobilink Bank to Tamasha and Apna Clinic.</p>
-      <div class="about-highlights">
-        <div class="highlight-item">
-          <div class="highlight-icon">🧠</div>
-          <div><div class="highlight-title">AI-First Thinking</div><div class="highlight-desc">Every solution starts with: can AI solve this better, faster, or at 75M-user scale?</div></div>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="#" class="nav-brand">ZUR</a>
+            <ul class="nav-menu">
+                <li><a href="#intro">About</a></li>
+                <li><a href="#research">Research</a></li>
+                <li><a href="#work">Work</a></li>
+                <li><a href="#projects">Projects</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
         </div>
-        <div class="highlight-item">
-          <div class="highlight-icon">⚙️</div>
-          <div><div class="highlight-title">End-to-End MLOps</div><div class="highlight-desc">From model training to Docker-containerised CI/CD on AWS — full ownership, not just notebooks.</div></div>
+    </nav>
+
+    <!-- Hero -->
+    <section id="intro" class="hero">
+        <div class="hero-content">
+            <h1 class="hero-title">AI Researcher.<br>MLOps Engineer.<br>Impact Builder.</h1>
+            <p class="hero-subtitle">
+                Bridging deep learning research and production systems.
+                <br>Published researcher. Three internships. One mission: deploy AI that matters.
+            </p>
+            <div class="hero-cta">
+                <a href="#research" class="btn btn-primary">Explore Work</a>
+                <a href="#contact" class="btn btn-secondary">Get In Touch</a>
+            </div>
         </div>
-        <div class="highlight-item">
-          <div class="highlight-icon">🔗</div>
-          <div><div class="highlight-title">LLM & RAG Integration</div><div class="highlight-desc">Built production-grade RAG pipelines with embeddings and vector databases at ATS UK.</div></div>
+    </section>
+
+    <!-- Intro Section -->
+    <section id="research" class="intro-section">
+        <div class="section-header">
+            <h2>Research & Publications</h2>
+            <p class="section-subtitle">Peer-reviewed contributions advancing AI safety, interpretability, and deployment.</p>
         </div>
-      </div>
-    </div>
-    <div class="fade-up" style="animation-delay:0.15s">
-      <div class="about-card">
-        <div class="about-avatar">ZR</div>
-        <div class="about-name">Zia ur Rahman</div>
-        <div class="about-role">AI Engineer · MLOps · Computer Vision<br>RAG & LLM Integration Specialist</div>
-        <div class="about-tags">
-          <span class="tag acc">Deep Learning</span><span class="tag acc">Computer Vision</span>
-          <span class="tag acc">RAG Pipelines</span><span class="tag">MLOps / CI/CD</span>
-          <span class="tag">Docker &amp; AWS</span><span class="tag">Claude API</span>
-          <span class="tag">FastAPI</span><span class="tag org">YOLOv9</span><span class="tag org">MCP</span>
+
+        <div class="research-grid">
+            <!-- Published Paper -->
+            <article class="research-card published">
+                <div class="card-status">Published 2024</div>
+                <h3>Decoupled IoT Architecture for Coal Mine Safety</h3>
+                <p class="card-meta">Journal of Science & Technology · Qurtuba University Journals</p>
+                <p class="card-desc">
+                    Designed and validated a modular IoT architecture integrating multi-sensor data acquisition 
+                    (gas, temperature, humidity) with wireless alerting networks for real-time hazard detection 
+                    in safety-critical underground environments.
+                </p>
+                <div class="card-tags">
+                    <span class="tag">IoT Architecture</span>
+                    <span class="tag">Safety Systems</span>
+                    <span class="tag">Real-Time Systems</span>
+                </div>
+                <a href="https://journals.qurtuba.edu.pk/ojs/index.php/tst/article/view/86186" target="_blank" class="card-link">
+                    Read Paper →
+                </a>
+            </article>
+
+            <!-- Conference Manuscript -->
+            <article class="research-card in-prep">
+                <div class="card-status">In Preparation</div>
+                <h3>AI-Based Spine X-Ray Analysis for Automated Pathology Detection</h3>
+                <p class="card-meta">Conference Paper · Target 2026 Submission</p>
+                <p class="card-desc">
+                    End-to-end deep learning pipeline combining YOLOv9 object detection and DenseNet classification 
+                    for clinical-grade diagnostic support. Implements Grad-CAM visualizations for model interpretability 
+                    and production-ready MLOps infrastructure with CI/CD automation.
+                </p>
+                <div class="card-tags">
+                    <span class="tag">Deep Learning</span>
+                    <span class="tag">Medical Imaging</span>
+                    <span class="tag">Interpretability</span>
+                </div>
+                <a href="#projects" class="card-link">
+                    Featured Project →
+                </a>
+            </article>
+
+            <!-- Active Research -->
+            <article class="research-card active">
+                <div class="card-status">In Progress</div>
+                <h3>Edge ML: Model Optimization for Resource-Constrained Devices</h3>
+                <p class="card-meta">Research Project · 2025–Present</p>
+                <p class="card-desc">
+                    Investigating quantization, pruning, and knowledge distillation techniques for efficient 
+                    inference on edge devices. Extending IoT safety work to real-world deployment scenarios 
+                    with maintained accuracy and interpretability.
+                </p>
+                <div class="card-tags">
+                    <span class="tag">Model Compression</span>
+                    <span class="tag">Edge Computing</span>
+                    <span class="tag">Efficiency</span>
+                </div>
+            </article>
         </div>
-        <div class="about-info-row"><span>Location</span><span>Islamabad, Pakistan</span></div>
-        <div class="about-info-row"><span>University</span><span>PAF-IAST · CS 2026</span></div>
-        <div class="about-info-row"><span>Status</span><span style="color:var(--accent)">● Open to Opportunities</span></div>
-        <div class="about-info-row"><span>Email</span><span><a href="mailto:ziaurrahman.26261@gmail.com" style="color:var(--accent);text-decoration:none">ziaurrahman.26261@gmail.com</a></span></div>
-        <div class="about-info-row"><span>GitHub</span><span><a href="https://github.com/ziaur390" target="_blank" style="color:var(--accent);text-decoration:none">github.com/ziaur390</a></span></div>
-        <div class="about-info-row"><span>Portfolio</span><span><a href="https://ziarahman.netlify.app" target="_blank" style="color:var(--accent);text-decoration:none">ziarahman.netlify.app</a></span></div>
-      </div>
-    </div>
-  </div>
-</section>
+    </section>
 
-<!-- ─── SKILLS ────────────────────────────────────────────── -->
-<section id="skills">
-  <div class="section-label">Technical Proficiency</div>
-  <h2 class="section-title" style="margin-bottom:2.5rem">Skills &amp; Stack</h2>
-  <div class="skills-grid">
-    <div class="skill-card fade-up">
-      <div class="skill-card-header"><div class="ski g">🤖</div><div class="skill-card-title">Machine Learning &amp; AI</div></div>
-      <div class="skill-tags">
-        <span class="skill-tag">Python</span><span class="skill-tag">PyTorch</span><span class="skill-tag">TensorFlow / Keras</span>
-        <span class="skill-tag">Scikit-learn</span><span class="skill-tag">NumPy</span><span class="skill-tag">Pandas</span>
-        <span class="skill-tag">CNNs</span><span class="skill-tag">Transfer Learning</span>
-        <span class="skill-tag">YOLO (v9)</span><span class="skill-tag">Grad-CAM</span><span class="skill-tag">Medical Imaging</span>
-      </div>
-    </div>
-    <div class="skill-card fade-up" style="animation-delay:0.06s">
-      <div class="skill-card-header"><div class="ski o">☁️</div><div class="skill-card-title">DevOps &amp; Cloud</div></div>
-      <div class="skill-tags">
-        <span class="skill-tag">Docker</span><span class="skill-tag">Docker Compose</span><span class="skill-tag">Jenkins</span>
-        <span class="skill-tag">CI/CD Pipelines</span><span class="skill-tag">Kubernetes</span><span class="skill-tag">Terraform</span>
-        <span class="skill-tag">AWS EC2</span><span class="skill-tag">AWS S3</span><span class="skill-tag">AWS IAM</span>
-        <span class="skill-tag">Linux</span><span class="skill-tag">Git / GitHub</span>
-      </div>
-    </div>
-    <div class="skill-card fade-up" style="animation-delay:0.12s">
-      <div class="skill-card-header"><div class="ski p">🔗</div><div class="skill-card-title">AI Integration &amp; LLMs</div></div>
-      <div class="skill-tags">
-        <span class="skill-tag">Claude API (Anthropic)</span><span class="skill-tag">Model Context Protocol</span>
-        <span class="skill-tag">RAG Pipelines</span><span class="skill-tag">Vector Databases</span>
-        <span class="skill-tag">Embeddings</span><span class="skill-tag">Prompt Engineering</span>
-        <span class="skill-tag">LLM Integration</span><span class="skill-tag">AI Fluency Frameworks</span>
-      </div>
-    </div>
-    <div class="skill-card fade-up" style="animation-delay:0.18s">
-      <div class="skill-card-header"><div class="ski b">🌐</div><div class="skill-card-title">Backend &amp; APIs</div></div>
-      <div class="skill-tags">
-        <span class="skill-tag">FastAPI</span><span class="skill-tag">Flask</span><span class="skill-tag">Django</span>
-        <span class="skill-tag">REST APIs</span><span class="skill-tag">Nginx</span><span class="skill-tag">Uvicorn</span>
-      </div>
-    </div>
-    <div class="skill-card fade-up" style="animation-delay:0.24s">
-      <div class="skill-card-header"><div class="ski r">💻</div><div class="skill-card-title">Programming Languages</div></div>
-      <div class="skill-tags">
-        <span class="skill-tag">Python</span><span class="skill-tag">C++</span><span class="skill-tag">C#</span>
-        <span class="skill-tag">JavaScript</span><span class="skill-tag">SQL</span><span class="skill-tag">Bash / Shell</span>
-      </div>
-    </div>
-    <div class="skill-card fade-up" style="animation-delay:0.30s">
-      <div class="skill-card-header"><div class="ski t">🛠</div><div class="skill-card-title">Software Development &amp; Data</div></div>
-      <div class="skill-tags">
-        <span class="skill-tag">.NET WinForms</span><span class="skill-tag">SQL Server</span><span class="skill-tag">MySQL</span>
-        <span class="skill-tag">PostgreSQL</span><span class="skill-tag">HTML / CSS</span><span class="skill-tag">Bootstrap</span>
-        <span class="skill-tag">Data Preprocessing</span><span class="skill-tag">Jupyter Notebooks</span><span class="skill-tag">Roboflow</span>
-      </div>
-    </div>
-  </div>
-</section>
+    <!-- Work Experience -->
+    <section id="work" class="work-section">
+        <div class="section-header">
+            <h2>Professional Experience</h2>
+            <p class="section-subtitle">Three internships across cloud infrastructure, enterprise software, and generative AI.</p>
+        </div>
 
-<!-- ─── EXPERIENCE ────────────────────────────────────────── -->
-<section id="experience">
-  <div class="section-label">Professional Background</div>
-  <h2 class="section-title" style="margin-bottom:3rem">Work Experience</h2>
-  <div class="exp-timeline">
+        <div class="timeline">
+            <div class="timeline-item">
+                <div class="timeline-date">Aug 2025 – Oct 2025</div>
+                <div class="timeline-content">
+                    <h3>AI & RAG Engineering Intern</h3>
+                    <p class="timeline-company">ATS UK · Remote</p>
+                    <p class="timeline-desc">
+                        Engineered end-to-end RAG pipelines with document embeddings and vector database retrieval. 
+                        Integrated pre-trained LLMs with systematic optimization of retrieval accuracy and latency.
+                    </p>
+                    <div class="timeline-tags">
+                        <span class="tag">RAG Pipelines</span>
+                        <span class="tag">Claude API</span>
+                        <span class="tag">Vector DB</span>
+                        <span class="tag">Python</span>
+                    </div>
+                </div>
+            </div>
 
-    <div class="exp-item fade-up">
-      <div class="exp-date">Aug 2025 – Oct 2025</div>
-      <div class="exp-body">
-        <div class="exp-company">ATS UK · Remote</div>
-        <div class="exp-role">AI &amp; RAG Engineering Intern</div>
-        <div class="exp-tags"><span class="exp-tag">RAG Pipelines</span><span class="exp-tag">Vector Databases</span><span class="exp-tag">LLM Integration</span><span class="exp-tag">Embeddings</span><span class="exp-tag">Python</span></div>
-        <ul class="exp-points">
-          <li>Engineered end-to-end Retrieval-Augmented Generation (RAG) pipelines using document embeddings and vector database search, enabling context-aware AI chatbot responses in a production-like environment.</li>
-          <li>Integrated pre-trained ML models into a chatbot architecture, demonstrating full lifecycle ownership from model selection through to deployment-ready inference.</li>
-          <li>Optimised retrieval accuracy and response latency through iterative experimentation, contributing to measurable improvements in answer quality across knowledge domains.</li>
-          <li>Gained deep exposure to LLM integration patterns directly applicable to JazzWorld's customer service AI, digital assistant, and intelligent search initiatives across its app ecosystem.</li>
-        </ul>
-      </div>
-    </div>
+            <div class="timeline-item">
+                <div class="timeline-date">Jun 2024 – Aug 2024</div>
+                <div class="timeline-content">
+                    <h3>Software Engineering Intern</h3>
+                    <p class="timeline-company">Ufone (PTCL Group) · Islamabad</p>
+                    <p class="timeline-desc">
+                        Developed .NET WinForms + SQL Server applications for enterprise telecom operations. 
+                        Redesigned operator dashboards and implemented robust CRUD systems in live production environment.
+                    </p>
+                    <div class="timeline-tags">
+                        <span class="tag">.NET WinForms</span>
+                        <span class="tag">SQL Server</span>
+                        <span class="tag">C#</span>
+                        <span class="tag">UI/UX</span>
+                    </div>
+                </div>
+            </div>
 
-    <div class="exp-item fade-up" style="animation-delay:0.08s">
-      <div class="exp-date">Jun 2024 – Aug 2024</div>
-      <div class="exp-body">
-        <div class="exp-company">Ufone · Islamabad</div>
-        <div class="exp-role">Software Engineering Intern</div>
-        <div class="exp-tags"><span class="exp-tag">.NET WinForms</span><span class="exp-tag">SQL Server</span><span class="exp-tag">C#</span><span class="exp-tag">UI Development</span></div>
-        <ul class="exp-points">
-          <li>Engineered .NET WinForms desktop applications with SQL Server backend for internal operations management at one of Pakistan's leading telecom providers — directly aligned with the JazzWorld ecosystem.</li>
-          <li>Redesigned operator-facing UI dashboards, reducing navigational complexity and improving daily workflow efficiency for internal business teams.</li>
-          <li>Implemented robust CRUD functionality with data validation, contributing to improved data integrity across mission-critical internal systems.</li>
-          <li>Collaborated cross-functionally with senior engineers and business stakeholders in a fast-paced telecom environment, developing the ownership mindset and communication skills JazzWorld actively seeks.</li>
-        </ul>
-      </div>
-    </div>
+            <div class="timeline-item">
+                <div class="timeline-date">Jul 2023 – Sep 2023</div>
+                <div class="timeline-content">
+                    <h3>DevOps & Cloud Engineering Intern</h3>
+                    <p class="timeline-company">SPCAI · Islamabad</p>
+                    <p class="timeline-desc">
+                        Built containerized ML deployment pipelines on AWS EC2/S3. Implemented CI/CD automation 
+                        with GitHub Actions and Terraform. Gained Kubernetes orchestration fundamentals in live environment.
+                    </p>
+                    <div class="timeline-tags">
+                        <span class="tag">Docker</span>
+                        <span class="tag">AWS</span>
+                        <span class="tag">CI/CD</span>
+                        <span class="tag">Kubernetes</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
 
-    <div class="exp-item fade-up" style="animation-delay:0.16s">
-      <div class="exp-date">Jul 2023 – Sep 2023</div>
-      <div class="exp-body">
-        <div class="exp-company">SPCAI · Islamabad</div>
-        <div class="exp-role">DevOps &amp; Cloud Engineering Intern</div>
-        <div class="exp-tags"><span class="exp-tag">Docker</span><span class="exp-tag">AWS EC2 / S3</span><span class="exp-tag">CI/CD</span><span class="exp-tag">Git</span><span class="exp-tag">Linux</span></div>
-        <ul class="exp-points">
-          <li>Worked with Docker, Git, CI/CD automation, and Linux systems to support containerised application delivery in a professional AI company environment — building the DevOps foundation underlying all modern ML deployments.</li>
-          <li>Assisted in architecting and deploying scalable, containerised cloud systems on AWS EC2 and S3, gaining foundational MLOps experience critical to production AI services.</li>
-          <li>Contributed to infrastructure-as-code practices and automated deployment workflows, reducing manual intervention in release cycles and improving system reproducibility.</li>
-        </ul>
-      </div>
-    </div>
+    <!-- Projects -->
+    <section id="projects" class="projects-section">
+        <div class="section-header">
+            <h2>Featured Projects</h2>
+            <p class="section-subtitle">End-to-end systems spanning research, infrastructure, and production deployment.</p>
+        </div>
 
-  </div>
-</section>
+        <div class="projects-grid">
+            <!-- Project 1 -->
+            <article class="project-card featured">
+                <div class="project-badge">Medical AI</div>
+                <h3>Spine X-Ray Diagnostic System</h3>
+                <p class="project-desc">
+                    End-to-end deployment of YOLOv9 + DenseNet for spine pathology detection with Grad-CAM 
+                    interpretability. Full MLOps pipeline: training → versioning → FastAPI inference → zero-downtime 
+                    AWS deployments via GitHub Actions.
+                </p>
+                <div class="project-tech">
+                    <span class="tech">YOLOv9</span>
+                    <span class="tech">DenseNet</span>
+                    <span class="tech">FastAPI</span>
+                    <span class="tech">Docker</span>
+                    <span class="tech">AWS</span>
+                    <span class="tech">CI/CD</span>
+                </div>
+            </article>
 
-<!-- ─── PROJECTS ──────────────────────────────────────────── -->
-<section id="projects">
-  <div class="section-label">Featured Work</div>
-  <h2 class="section-title" style="margin-bottom:2.5rem">Projects</h2>
-  <div class="projects-grid">
+            <!-- Project 2 -->
+            <article class="project-card">
+                <div class="project-badge">MLOps</div>
+                <h3>ML Training-to-Deployment Pipeline</h3>
+                <p class="project-desc">
+                    Automated full ML lifecycle using Jenkins, Docker, and GitHub Actions. Eliminates the 
+                    notebook-to-production gap with one-command reproducible model updates and version-controlled 
+                    deployment artifacts.
+                </p>
+                <div class="project-tech">
+                    <span class="tech">Jenkins</span>
+                    <span class="tech">Docker</span>
+                    <span class="tech">GitHub Actions</span>
+                    <span class="tech">FastAPI</span>
+                    <span class="tech">Python</span>
+                </div>
+            </article>
 
-    <div class="project-card fade-up">
-      <div class="project-card-top"><span class="project-badge b-ops">MLOps</span><div class="project-links"><a href="https://github.com/ziaur390" target="_blank">GitHub ↗</a></div></div>
-      <div class="project-card-body">
-        <div class="project-title">MLOps CI/CD Pipeline</div>
-        <div class="project-problem">The Problem</div>
-        <p class="project-desc">Most ML projects die in notebooks — never reaching production. Manual retraining and ad-hoc deployments make ML systems brittle, hard to reproduce, and impossible to scale in enterprise settings where models must be continuously updated.</p>
-        <div class="project-impact"><strong>Impact</strong>Automated the full ML training-to-deployment lifecycle using Jenkins, Docker, GitHub Actions, and FastAPI — enabling one-command model updates and reproducible deployments aligned with industry MLOps standards.</div>
-        <div class="project-tech"><span class="tech-pill">Jenkins</span><span class="tech-pill">Docker</span><span class="tech-pill">GitHub Actions</span><span class="tech-pill">FastAPI</span><span class="tech-pill">Python</span><span class="tech-pill">CI/CD</span></div>
-      </div>
-    </div>
+            <!-- Project 3 -->
+            <article class="project-card">
+                <div class="project-badge">Generative AI</div>
+                <h3>Real Estate RAG Assistant</h3>
+                <p class="project-desc">
+                    End-to-end RAG pipeline with semantic embeddings and vector database retrieval. 
+                    Enables natural language property queries demonstrating LLM integration patterns 
+                    applicable to enterprise knowledge systems.
+                </p>
+                <div class="project-tech">
+                    <span class="tech">RAG</span>
+                    <span class="tech">Vector DB</span>
+                    <span class="tech">Embeddings</span>
+                    <span class="tech">FastAPI</span>
+                    <span class="tech">Claude API</span>
+                </div>
+            </article>
 
-    <div class="project-card fade-up" style="animation-delay:0.08s">
-      <div class="project-card-top"><span class="project-badge b-ops">MLOps</span><div class="project-links"><a href="https://github.com/ziaur390" target="_blank">GitHub ↗</a></div></div>
-      <div class="project-card-body">
-        <div class="project-title">FastAPI ML Deployment (Dockerised)</div>
-        <div class="project-problem">The Problem</div>
-        <p class="project-desc">Serving ML models at scale requires more than a local script — it demands containerised, production-ready inference APIs that are portable, versioned, and horizontally scalable across cloud environments like AWS.</p>
-        <div class="project-impact"><strong>Impact</strong>Containerised a complete ML inference API using FastAPI and Docker Compose with Nginx reverse proxy, enabling environment-agnostic deployment and laying the foundation for cloud-native model serving on AWS EC2.</div>
-        <div class="project-tech"><span class="tech-pill">FastAPI</span><span class="tech-pill">Docker Compose</span><span class="tech-pill">Nginx</span><span class="tech-pill">Python</span><span class="tech-pill">REST API</span><span class="tech-pill">AWS EC2</span></div>
-      </div>
-    </div>
+            <!-- Project 4 -->
+            <article class="project-card">
+                <div class="project-badge">Infrastructure</div>
+                <h3>Containerized ML Inference (Cloud-Native)</h3>
+                <p class="project-desc">
+                    FastAPI inference service with Docker Compose and Nginx reverse proxy on AWS EC2. 
+                    Horizontally scalable, environment-agnostic model serving with health checks and load balancing.
+                </p>
+                <div class="project-tech">
+                    <span class="tech">FastAPI</span>
+                    <span class="tech">Docker Compose</span>
+                    <span class="tech">Nginx</span>
+                    <span class="tech">AWS EC2</span>
+                    <span class="tech">REST API</span>
+                </div>
+            </article>
 
-    <div class="project-card fade-up" style="animation-delay:0.16s">
-      <div class="project-card-top"><span class="project-badge b-rag">RAG / LLM</span><div class="project-links"><a href="https://github.com/ziaur390" target="_blank">GitHub ↗</a></div></div>
-      <div class="project-card-body">
-        <div class="project-title">Pakistan Real Estate RAG Assistant</div>
-        <div class="project-problem">The Problem</div>
-        <p class="project-desc">Pakistan's real estate market lacks intelligent search tools. Buyers and agents waste hours navigating unstructured listings with no way to ask natural language questions about location, price, or specifications at scale.</p>
-        <div class="project-impact"><strong>Impact</strong>Built a full RAG pipeline with document embeddings and vector DB retrieval enabling natural language property queries — a direct precursor to intelligent assistants applicable to JazzCash lending and Apna Clinic health information retrieval.</div>
-        <div class="project-tech"><span class="tech-pill">RAG</span><span class="tech-pill">Embeddings</span><span class="tech-pill">Vector Database</span><span class="tech-pill">LLM</span><span class="tech-pill">Python</span><span class="tech-pill">FastAPI</span></div>
-      </div>
-    </div>
+            <!-- Project 5 -->
+            <article class="project-card">
+                <div class="project-badge">Computer Vision</div>
+                <h3>Flower Classification & Detection</h3>
+                <p class="project-desc">
+                    Dual-model pipeline combining YOLOv9 real-time detection with AlexNet classification 
+                    on custom dataset. Demonstrates production-ready computer vision architecture for 
+                    inspection and agriculture domains.
+                </p>
+                <div class="project-tech">
+                    <span class="tech">YOLOv9</span>
+                    <span class="tech">AlexNet</span>
+                    <span class="tech">PyTorch</span>
+                    <span class="tech">OpenCV</span>
+                    <span class="tech">Roboflow</span>
+                </div>
+            </article>
 
-    <div class="project-card fade-up" style="animation-delay:0.24s">
-      <div class="project-card-top"><span class="project-badge b-cv">Medical AI</span><div class="project-links"><a href="https://github.com/ziaur390" target="_blank">GitHub ↗</a></div></div>
-      <div class="project-card-body">
-        <div class="project-title">Spine Disease Detection System</div>
-        <div class="project-problem">The Problem</div>
-        <p class="project-desc">Manual radiograph analysis requires scarce specialist expertise. Black-box AI predictions lack the clinical transparency needed for physician adoption — a fundamental barrier to real-world medical AI deployment.</p>
-        <div class="project-impact"><strong>Impact</strong>Delivered an end-to-end diagnostic CNN pipeline with Grad-CAM visual explainability, bridging the critical gap between model accuracy and clinical trust — applicable to Apna Clinic's digital health platform.</div>
-        <div class="project-tech"><span class="tech-pill">PyTorch</span><span class="tech-pill">CNN</span><span class="tech-pill">Grad-CAM</span><span class="tech-pill">Medical Datasets</span><span class="tech-pill">Transfer Learning</span><span class="tech-pill">Python</span></div>
-      </div>
-    </div>
+            <!-- Project 6 -->
+            <article class="project-card">
+                <div class="project-badge">IoT</div>
+                <h3>Multi-Sensor Safety Monitoring System</h3>
+                <p class="project-desc">
+                    Modular IoT architecture for real-time underground safety monitoring with multi-sensor 
+                    integration and wireless alerting. Published as peer-reviewed journal paper demonstrating 
+                    production-quality system design.
+                </p>
+                <div class="project-tech">
+                    <span class="tech">IoT Architecture</span>
+                    <span class="tech">Multi-Sensor</span>
+                    <span class="tech">Real-Time Systems</span>
+                    <span class="tech">Wireless Networks</span>
+                </div>
+            </article>
+        </div>
+    </section>
 
-    <div class="project-card fade-up" style="animation-delay:0.32s">
-      <div class="project-card-top"><span class="project-badge b-dl">Computer Vision</span><div class="project-links"><a href="https://github.com/ziaur390" target="_blank">GitHub ↗</a></div></div>
-      <div class="project-card-body">
-        <div class="project-title">Flower Classification &amp; Detection</div>
-        <div class="project-problem">The Problem</div>
-        <p class="project-desc">Species identification in agricultural domains requires both accurate classification and real-time spatial detection — two distinct challenges that most systems address separately and inadequately in production settings.</p>
-        <div class="project-impact"><strong>Impact</strong>Combined AlexNet-based classification with YOLOv9 real-time detection on a custom dataset, demonstrating dual-model pipeline architecture applicable to smart inspection, retail, and precision agriculture systems.</div>
-        <div class="project-tech"><span class="tech-pill">YOLOv9</span><span class="tech-pill">AlexNet</span><span class="tech-pill">PyTorch</span><span class="tech-pill">OpenCV</span><span class="tech-pill">Roboflow</span><span class="tech-pill">Custom Dataset</span></div>
-      </div>
-    </div>
+    <!-- Skills Section -->
+    <section class="skills-section">
+        <div class="section-header">
+            <h2>Technical Stack</h2>
+            <p class="section-subtitle">Tools and frameworks driving research and production systems.</p>
+        </div>
 
-    <div class="project-card fade-up" style="animation-delay:0.40s">
-      <div class="project-card-top"><span class="project-badge b-web">Full-Stack AI</span><div class="project-links"><a href="https://github.com/ziaur390" target="_blank">GitHub ↗</a></div></div>
-      <div class="project-card-body">
-        <div class="project-title">Loan Predictor — End-to-End Deployment</div>
-        <div class="project-problem">The Problem</div>
-        <p class="project-desc">ML credit models typically exist only as offline scripts — no accessible interface, no real-time decisioning, no integration with business workflows. This limits adoption by credit teams in fintech environments like JazzCash.</p>
-        <div class="project-impact"><strong>Impact</strong>Built a complete end-to-end deployment with ML backend, FastAPI inference service, and user-facing UI — a production pattern directly applicable to JazzCash microloan scoring and Mobilink Bank credit risk tooling.</div>
-        <div class="project-tech"><span class="tech-pill">Scikit-learn</span><span class="tech-pill">FastAPI</span><span class="tech-pill">Docker</span><span class="tech-pill">HTML/CSS/JS</span><span class="tech-pill">Bootstrap</span><span class="tech-pill">Python</span></div>
-      </div>
-    </div>
+        <div class="skills-grid">
+            <div class="skill-category">
+                <h4>Machine Learning</h4>
+                <div class="skill-list">
+                    <span class="skill">PyTorch</span>
+                    <span class="skill">TensorFlow/Keras</span>
+                    <span class="skill">YOLOv9</span>
+                    <span class="skill">Transfer Learning</span>
+                    <span class="skill">Grad-CAM</span>
+                    <span class="skill">Medical Imaging</span>
+                </div>
+            </div>
 
-  </div>
-</section>
+            <div class="skill-category">
+                <h4>DevOps & Cloud</h4>
+                <div class="skill-list">
+                    <span class="skill">Docker</span>
+                    <span class="skill">Kubernetes</span>
+                    <span class="skill">Jenkins</span>
+                    <span class="skill">GitHub Actions</span>
+                    <span class="skill">AWS (EC2, S3, IAM)</span>
+                    <span class="skill">Terraform</span>
+                </div>
+            </div>
 
-<!-- ─── EDUCATION ─────────────────────────────────────────── -->
-<section id="education">
-  <div class="section-label">Academic Background</div>
-  <h2 class="section-title" style="margin-bottom:2.5rem">Education</h2>
-  <div class="edu-card fade-up">
-    <div class="edu-icon">🎓</div>
-    <div>
-      <div class="edu-degree">Bachelor of Science in Computer Science</div>
-      <div class="edu-school">Pak-Austria Fachhochschule Institute of Applied Sciences and Technology (PAF-IAST)</div>
-      <div class="edu-meta">Haripur, KPK, Pakistan &nbsp;·&nbsp; Expected Graduation: June 2026</div>
-      <div class="edu-focus">Core focus areas: <strong>Artificial Intelligence, Machine Learning, Computer Vision, Cloud Computing, Software Engineering, and Data Structures &amp; Algorithms.</strong> Applied AI-first problem solving across coursework, three industry internships, and six independently-built technical projects — all while maintaining academic progress toward a 2026 graduation.</div>
-    </div>
-  </div>
-</section>
+            <div class="skill-category">
+                <h4>Generative AI</h4>
+                <div class="skill-list">
+                    <span class="skill">Claude API</span>
+                    <span class="skill">Model Context Protocol</span>
+                    <span class="skill">RAG Pipelines</span>
+                    <span class="skill">Vector Databases</span>
+                    <span class="skill">Embeddings</span>
+                    <span class="skill">Prompt Engineering</span>
+                </div>
+            </div>
 
-<!-- ─── CERTIFICATIONS ────────────────────────────────────── -->
-<section id="certifications">
-  <div class="section-label">Credentials</div>
-  <h2 class="section-title" style="margin-bottom:2.5rem">Certifications &amp; Learning</h2>
-  <div class="certs-grid">
-    <div class="cert-card fade-up"><div class="cert-logo">🤖</div><div><div class="cert-name">Claude API &amp; Prompt Engineering</div><div class="cert-issuer">Anthropic Developer Docs</div><div class="cert-year">2025 – Ongoing</div></div></div>
-    <div class="cert-card fade-up" style="animation-delay:0.06s"><div class="cert-logo">🔗</div><div><div class="cert-name">Model Context Protocol (MCP)</div><div class="cert-issuer">Anthropic Developer Docs</div><div class="cert-year">2025 – Ongoing</div></div></div>
-    <div class="cert-card fade-up" style="animation-delay:0.12s"><div class="cert-logo">☁️</div><div><div class="cert-name">AWS Cloud Practitioner Essentials</div><div class="cert-issuer">Amazon Web Services</div><div class="cert-year">2023</div></div></div>
-    <div class="cert-card fade-up" style="animation-delay:0.18s"><div class="cert-logo">📡</div><div><div class="cert-name">Deep Learning Specialization</div><div class="cert-issuer">Coursera / deeplearning.ai</div><div class="cert-year">2024</div></div></div>
-    <div class="cert-card fade-up" style="animation-delay:0.24s"><div class="cert-logo">🐳</div><div><div class="cert-name">Docker &amp; Kubernetes Fundamentals</div><div class="cert-issuer">Udemy</div><div class="cert-year">2023</div></div></div>
-    <div class="cert-card fade-up" style="animation-delay:0.30s"><div class="cert-logo">👁</div><div><div class="cert-name">Computer Vision &amp; Object Detection</div><div class="cert-issuer">Kaggle / Roboflow</div><div class="cert-year">2024</div></div></div>
-    <div class="cert-card fade-up" style="animation-delay:0.36s"><div class="cert-logo">🐍</div><div><div class="cert-name">Python for Data Science &amp; AI</div><div class="cert-issuer">IBM / Coursera</div><div class="cert-year">2023</div></div></div>
-    <div class="cert-card fade-up" style="animation-delay:0.42s"><div class="cert-logo">🌐</div><div><div class="cert-name">AI Fluency &amp; Responsible AI</div><div class="cert-issuer">Anthropic / Google</div><div class="cert-year">2025</div></div></div>
-  </div>
-</section>
+            <div class="skill-category">
+                <h4>Backend & APIs</h4>
+                <div class="skill-list">
+                    <span class="skill">FastAPI</span>
+                    <span class="skill">Flask</span>
+                    <span class="skill">Django</span>
+                    <span class="skill">REST APIs</span>
+                    <span class="skill">PostgreSQL</span>
+                    <span class="skill">MySQL</span>
+                </div>
+            </div>
 
-<!-- ─── SUGGESTED PROJECTS ────────────────────────────────── -->
-<section id="suggested">
-  <div class="section-label">Strategic Roadmap</div>
-  <h2 class="section-title" style="margin-bottom:0.75rem">2 Projects to Build Before the Interview</h2>
-  <p style="color:var(--text-secondary);margin-bottom:2.5rem;font-weight:300;max-width:640px">Directly targeting JazzWorld's fintech, customer intelligence, and AI-integration domains — buildable in 2–3 weeks and immediately portfolio-ready.</p>
-  <div class="suggested-grid">
-    <div class="suggested-card fade-up">
-      <div class="suggested-num">01</div>
-      <div class="suggested-timeline">2–3 Weeks · Highest Priority</div>
-      <div class="suggested-title">AI Telecom Churn Predictor + Claude Insight Engine</div>
-      <p class="suggested-desc">ML churn prediction on the IBM Telco dataset, layered with a Claude API-powered natural language dashboard that lets non-technical users query churn drivers, generate retention strategy summaries, and receive AI-written action recommendations — deployed via FastAPI + Docker + Streamlit.</p>
-      <div class="suggested-why">
-        <strong>Why it wins the JazzWorld interview</strong>
-        Mirrors Jazz's 75M-customer retention challenge directly. Combines your ML, FastAPI, Docker, and Claude API skills in one end-to-end system. Demonstrates data-driven decision making and cross-functional value creation — exactly what JazzWorld's CAIO mandate demands.
-      </div>
-      <div class="project-tech" style="margin-top:1.1rem"><span class="tech-pill">XGBoost</span><span class="tech-pill">Claude API</span><span class="tech-pill">FastAPI</span><span class="tech-pill">Docker</span><span class="tech-pill">Streamlit</span><span class="tech-pill">MCP</span></div>
-    </div>
-    <div class="suggested-card fade-up" style="animation-delay:0.1s">
-      <div class="suggested-num">02</div>
-      <div class="suggested-timeline">2 Weeks · High Priority</div>
-      <div class="suggested-title">AI Document Intelligence API (MCP + RAG + Claude)</div>
-      <p class="suggested-desc">Production REST API that ingests PDF documents, builds a RAG index, and uses Claude via MCP to extract structured data, answer natural language questions, and flag anomalies — with a clean UI framed around JazzCash and Mobilink Bank use cases to show business context.</p>
-      <div class="suggested-why">
-        <strong>Why it wins the JazzWorld interview</strong>
-        Stacks your three most cutting-edge skills (RAG, MCP, Claude API) in a single deployable system. Instantly applicable to JazzCash, Mobilink Bank, and Apna Clinic. Proves you can build tools usable by cross-functional teams with no ML background — combining business impact with collaboration skills.
-      </div>
-      <div class="project-tech" style="margin-top:1.1rem"><span class="tech-pill">Claude API</span><span class="tech-pill">MCP</span><span class="tech-pill">RAG</span><span class="tech-pill">FastAPI</span><span class="tech-pill">Docker</span><span class="tech-pill">Bootstrap</span></div>
-    </div>
-  </div>
-</section>
+            <div class="skill-category">
+                <h4>Programming</h4>
+                <div class="skill-list">
+                    <span class="skill">Python</span>
+                    <span class="skill">C++</span>
+                    <span class="skill">C#</span>
+                    <span class="skill">SQL</span>
+                    <span class="skill">Bash/Shell</span>
+                    <span class="skill">JavaScript</span>
+                </div>
+            </div>
 
-<!-- ─── CONTACT ────────────────────────────────────────────── -->
-<section id="contact">
-  <div class="contact-content fade-up">
-    <div class="section-label" style="justify-content:center">Let's Connect</div>
-    <div class="contact-title">Let's Build<br><span>Pakistan's AI Future.</span></div>
-    <p class="contact-sub">Applying for the JazzWorld AI Associate Programme 2026 — open to conversations about deep learning, MLOps, LLM integration, and how AI-native systems can drive real impact across Pakistan's digital economy.</p>
-    <div class="contact-links">
-      <a href="mailto:ziaurrahman.26261@gmail.com" class="contact-link contact-link-primary">✉ Email Me</a>
-      <a href="https://github.com/ziaur390" target="_blank" class="contact-link">🐙 GitHub</a>
-      <a href="https://ziarahman.netlify.app" target="_blank" class="contact-link">🌐 Portfolio</a>
-      <a href="https://linkedin.com/in/ziaur390" target="_blank" class="contact-link">💼 LinkedIn</a>
-    </div>
-  </div>
-</section>
+            <div class="skill-category">
+                <h4>Research & Data</h4>
+                <div class="skill-list">
+                    <span class="skill">NumPy</span>
+                    <span class="skill">Pandas</span>
+                    <span class="skill">Jupyter</span>
+                    <span class="skill">Data Preprocessing</span>
+                    <span class="skill">Experiment Tracking</span>
+                    <span class="skill">Roboflow</span>
+                </div>
+            </div>
+        </div>
+    </section>
 
-<footer>
-  <div>© 2026 Zia ur Rahman &nbsp;·&nbsp; <a href="https://ziarahman.netlify.app">ziarahman.netlify.app</a></div>
-  <div>Built for <a href="#hero">JazzWorld AI Associate Programme 2026</a> · Islamabad, Pakistan</div>
-</footer>
+    <!-- Education -->
+    <section class="education-section">
+        <div class="section-header">
+            <h2>Education</h2>
+        </div>
 
-<script>
-const observer = new IntersectionObserver((entries) => {
-  entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
-}, { threshold: 0.08, rootMargin: '0px 0px -30px 0px' });
-document.querySelectorAll('.fade-up').forEach(el => observer.observe(el));
-</script>
+        <div class="education-card">
+            <div class="edu-title">
+                <h3>Bachelor of Science in Computer Science</h3>
+                <p class="edu-school">Pak-Austria Fachhochschule (PAF-IAST)</p>
+            </div>
+            <div class="edu-meta">
+                <p><strong>Location:</strong> Haripur, KPK, Pakistan</p>
+                <p><strong>Graduation:</strong> June 2026</p>
+                <p><strong>Focus:</strong> AI, Machine Learning, Computer Vision, Cloud Computing, IoT Systems</p>
+            </div>
+            <div class="edu-achievements">
+                <p><strong>Achievements:</strong></p>
+                <ul>
+                    <li>Three industry internships (DevOps, Software Engineering, Generative AI)</li>
+                    <li>One peer-reviewed journal publication</li>
+                    <li>One conference paper in preparation</li>
+                    <li>Six independently deployed technical projects</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact -->
+    <section id="contact" class="contact-section">
+        <div class="contact-content">
+            <h2>Let's Build Something.</h2>
+            <p>
+                Actively seeking graduate opportunities in Computer Vision, AI Safety, and ML Systems. 
+                <br>Open to research collaboration and advancing AI-driven solutions.
+            </p>
+
+            <div class="contact-links">
+                <a href="mailto:ziaurrahman.26261@gmail.com" class="contact-btn">Email</a>
+                <a href="https://github.com/ziaur390" target="_blank" class="contact-btn">GitHub</a>
+                <a href="https://linkedin.com/in/ziaur390" target="_blank" class="contact-btn">LinkedIn</a>
+                <a href="https://scholar.google.com/citations?user=aH_kKXwAAAAJ" target="_blank" class="contact-btn">Scholar</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <p>© 2026 Zia ur Rahman · Islamabad, Pakistan</p>
+        <p><a href="https://ziarahman.netlify.app">Portfolio</a> · <a href="Zia_Rahman_Graduate_CV.pdf">Resume</a></p>
+    </footer>
+
+    <script src="script.js"></script>
 </body>
 </html>
