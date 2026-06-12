@@ -33,7 +33,6 @@ window.addEventListener('scroll', () => {
             document.querySelectorAll('.nav-menu a').forEach(link => {
                 link.style.color = '';
             });
-
             const activeLink = document.querySelector(`.nav-menu a[href="#${sectionId}"]`);
             if (activeLink) {
                 activeLink.style.color = 'var(--accent)';
