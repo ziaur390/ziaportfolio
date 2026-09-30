@@ -194,6 +194,31 @@
 
             <!-- Project 2 -->
             <article class="project-card">
+                <div class="project-badge">Virtualization</div>
+                <h3>KVM Two-Tier Java Application Lab</h3>
+                <p class="project-desc">
+                    A two-tier Java application tier on KVM virtual machines: Apache reverse-proxies to Tomcat 10
+                    serving a deployed WAR, with the application port firewalled to the web tier so the proxy is
+                    load-bearing rather than decorative. Provisioned with idempotent Ansible, where a second run
+                    reports <code>changed=0</code> on both hosts. Includes VM snapshots, rollback, and live vCPU
+                    and memory hot-add on a running guest. The backup verifies its own restore with a SHA-256
+                    manifest and an off-VM copy, and a tamper drill proves the check <strong>rejects a corrupted
+                    archive</strong>. Sized with a measured load test, not a guess: 1/2/4 vCPU gave 17.9 → 44.1
+                    requests/sec, and the analysis states what the numbers rule out as well as what they show.
+                </p>
+                <div class="project-tech">
+                    <span class="tech">KVM / libvirt</span>
+                    <span class="tech">Ansible</span>
+                    <span class="tech">Apache</span>
+                    <span class="tech">Tomcat 10</span>
+                    <span class="tech">Prometheus</span>
+                    <span class="tech">ufw</span>
+                </div>
+                <a href="https://github.com/ziaur390/kvm_tomacat" target="_blank" class="card-link">Code →</a>
+            </article>
+
+            <!-- Project 3 -->
+            <article class="project-card">
                 <div class="project-badge">Message-Driven Infrastructure</div>
                 <h3>Event-Driven Data Pipeline</h3>
                 <p class="project-desc">
@@ -338,13 +363,28 @@
             </div>
 
             <div class="skill-category">
+                <h4>Virtualization &amp; Server Ops</h4>
+                <div class="skill-list">
+                    <span class="skill">KVM / libvirt</span>
+                    <span class="skill">qcow2</span>
+                    <span class="skill">cloud-init</span>
+                    <span class="skill">Snapshots &amp; rollback</span>
+                    <span class="skill">Live CPU/memory resize</span>
+                    <span class="skill">VMware / Hyper-V equivalents</span>
+                    <span class="skill">systemd</span>
+                    <span class="skill">ufw</span>
+                </div>
+            </div>
+
+            <div class="skill-category">
                 <h4>DevOps &amp; Infrastructure</h4>
                 <div class="skill-list">
                     <span class="skill">Docker</span>
                     <span class="skill">Kubernetes</span>
                     <span class="skill">Ansible</span>
                     <span class="skill">Terraform</span>
-                    <span class="skill">systemd</span>
+                    <span class="skill">Tomcat</span>
+                    <span class="skill">Apache</span>
                     <span class="skill">Nginx</span>
                     <span class="skill">Linux</span>
                     <span class="skill">Bash</span>
